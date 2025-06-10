@@ -21,11 +21,12 @@
 .constellation-container {
   position: relative;
   width: 100%;
-  height: 550px;
+  height: 750px; /* Increased from 650px to 750px */
   margin: var(--spacing-xl) 0;
   background: radial-gradient(circle at center, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  padding: var(--spacing-lg);
 }
 
 .constellation-lines {
@@ -70,14 +71,69 @@
   align-items: center;
   gap: var(--spacing-sm);
   box-shadow: var(--shadow-primary);
+  min-width: 140px;
+  justify-content: center;
 }
 
-.download-button:hover {
+.download-button:hover:not(:disabled) {
   background: linear-gradient(135deg, #9333ea 0%, #db2777 50%, var(--primary-gold) 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
 }
 
-.download-button:active {
+.download-button:active:not(:disabled) {
   transform: translateY(0);
+}
+
+.download-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.download-button svg {
+  animation: none;
+}
+
+.download-button:disabled svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .constellation-container {
+    height: 550px;
+    padding: var(--spacing-md);
+  }
+
+  .download-button {
+    padding: 0.625rem var(--spacing-md);
+    font-size: var(--font-size-sm);
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .constellation-container {
+    height: 500px;
+    padding: var(--spacing-sm);
+  }
+
+  .ranking-title {
+    font-size: var(--font-size-lg);
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .ranking-title svg {
+    display: none;
+  }
 }

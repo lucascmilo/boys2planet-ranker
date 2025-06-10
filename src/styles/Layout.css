@@ -15,7 +15,7 @@
 
 .main-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 300px 1fr; /* Reduced trainee list from 1fr to 300px */
   gap: var(--spacing-xl);
   max-width: 1400px;
   margin: 0 auto;

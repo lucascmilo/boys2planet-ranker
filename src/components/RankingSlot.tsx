@@ -2,7 +2,6 @@
 
 import type React from "react"
 import type { Trainee } from "../types/trainee"
-// Remover esta linha: import "./RankingSlot.css"
 
 interface RankingSlotProps {
   position: number
@@ -104,7 +103,7 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
         {trainee ? (
           <>
             <img
-              src={trainee.image || "https://via.placeholder.com/80x80"}
+              src={trainee.image || "/placeholder.svg?height=80&width=80"}
               alt={trainee.name}
               className={`ranking-image ${trainee.eliminated && showEliminated ? "grayscale" : ""}`}
             />
@@ -162,7 +161,7 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
         {position}
       </div>
 
-      {/* Trainee Info */}
+      {/* Trainee Info - Improved spacing and visibility */}
       {trainee && (
         <div className={`ranking-info ${isCenter ? "center-info" : ""}`}>
           <p className="ranking-name">{trainee.name}</p>

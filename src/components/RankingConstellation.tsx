@@ -4,7 +4,6 @@ import type React from "react"
 import { useState, useRef } from "react"
 import { RankingSlot } from "./RankingSlot"
 import type { Trainee } from "../types/trainee"
-// Remover esta linha: import "./RankingConstellation.css"
 
 interface RankingConstellationProps {
   ranking: (Trainee | null)[]
@@ -14,21 +13,21 @@ interface RankingConstellationProps {
   showTop8: boolean
 }
 
-// Formation positions for 8 members in a beautiful K-pop style formation
+// Updated constellation formation positions - moved 2nd and 3rd closer to center
 const getFormationPosition = (index: number) => {
   const positions = [
-    // Center position (1st place) - front and center
-    { x: 50, y: 65, isCenter: true, size: "large" as const },
-    // Second row - 2nd and 3rd place flanking the center
-    { x: 25, y: 50, isCenter: false, size: "medium" as const },
-    { x: 75, y: 50, isCenter: false, size: "medium" as const },
+    // Top row - 1st place (center)
+    { x: 50, y: 20, isCenter: true, size: "large" as const },
+    // Second row - 2nd and 3rd place (moved closer to center)
+    { x: 35, y: 40, isCenter: false, size: "medium" as const }, // moved from 25 to 35
+    { x: 65, y: 40, isCenter: false, size: "medium" as const }, // moved from 75 to 65
     // Third row - 4th, 5th, 6th place
-    { x: 15, y: 35, isCenter: false, size: "small" as const },
-    { x: 50, y: 30, isCenter: false, size: "medium" as const },
-    { x: 85, y: 35, isCenter: false, size: "small" as const },
-    // Back row - 7th and 8th place
-    { x: 35, y: 15, isCenter: false, size: "small" as const },
-    { x: 65, y: 15, isCenter: false, size: "small" as const },
+    { x: 15, y: 60, isCenter: false, size: "small" as const },
+    { x: 50, y: 60, isCenter: false, size: "medium" as const },
+    { x: 85, y: 60, isCenter: false, size: "small" as const },
+    // Bottom row - 7th and 8th place
+    { x: 32.5, y: 80, isCenter: false, size: "small" as const },
+    { x: 67.5, y: 80, isCenter: false, size: "small" as const },
   ]
 
   return positions[index] || { x: 50, y: 50, isCenter: false, size: "medium" as const }
@@ -42,6 +41,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
   showTop8,
 }) => {
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null)
+  const [isDownloading, setIsDownloading] = useState(false)
   const constellationRef = useRef<HTMLDivElement>(null)
 
   const handleDragStart = (index: number) => {
@@ -60,105 +60,318 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
   }
 
   const downloadRanking = async () => {
-    if (!constellationRef.current) return
+    setIsDownloading(true)
 
     try {
-      // Hide interactive elements before capture
-      const removeButtons = constellationRef.current.querySelectorAll(".remove-button")
-      const instructions = constellationRef.current.querySelector(".ranking-instructions")
-
-      removeButtons.forEach((btn) => ((btn as HTMLElement).style.opacity = "0"))
-      if (instructions) (instructions as HTMLElement).style.display = "none"
-
-      // Create a canvas to draw the ranking
-      const canvas = document.createElement("canvas")
-      const ctx = canvas.getContext("2d")
-      if (!ctx) throw new Error("Could not get canvas context")
-
-      // Set canvas size
-      canvas.width = 800
-      canvas.height = 600
-
-      // Draw background
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-      gradient.addColorStop(0, "#1a0b2e")
-      gradient.addColorStop(0.5, "#16213e")
-      gradient.addColorStop(1, "#0f3460")
-      ctx.fillStyle = gradient
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      // Draw title
-      ctx.fillStyle = "#e879f9"
-      ctx.font = "bold 24px Inter, sans-serif"
-      ctx.textAlign = "center"
-      ctx.fillText("BOYS II PLANET CONSTELLATION", canvas.width / 2, 40)
-
-      // Draw ranking positions with trainee info
-      const positions = [
-        { x: 400, y: 390, size: 80, isCenter: true }, // Center
-        { x: 200, y: 300, size: 60 }, // 2nd
-        { x: 600, y: 300, size: 60 }, // 3rd
-        { x: 120, y: 210, size: 50 }, // 4th
-        { x: 400, y: 180, size: 60 }, // 5th
-        { x: 680, y: 210, size: 50 }, // 6th
-        { x: 280, y: 90, size: 50 }, // 7th
-        { x: 520, y: 90, size: 50 }, // 8th
-      ]
-
-      for (let i = 0; i < ranking.length; i++) {
-        const trainee = ranking[i]
-        const pos = positions[i]
-        if (!trainee || !pos) continue
-
-        // Draw position circle
-        ctx.beginPath()
-        ctx.arc(pos.x, pos.y, pos.size / 2, 0, 2 * Math.PI)
-
-        // Grade colors
-        const gradeColors = {
-          A: "#ec4899",
-          B: "#a855f7",
-          C: "#3b82f6",
-          D: "#06b6d4",
-          F: "#6b7280",
-        }
-
-        ctx.fillStyle = gradeColors[trainee.grade] || "#6b7280"
-        ctx.fill()
-        ctx.strokeStyle = "#ffffff"
-        ctx.lineWidth = pos.isCenter ? 4 : 2
-        ctx.stroke()
-
-        // Draw position number
-        ctx.fillStyle = "#ffffff"
-        ctx.font = `bold ${pos.isCenter ? "20px" : "16px"} Inter, sans-serif`
-        ctx.textAlign = "center"
-        ctx.fillText((i + 1).toString(), pos.x, pos.y - pos.size / 2 - 15)
-
-        // Draw trainee name
-        ctx.fillStyle = "#e879f9"
-        ctx.font = `${pos.isCenter ? "14px" : "12px"} Inter, sans-serif`
-        ctx.fillText(trainee.name, pos.x, pos.y + pos.size / 2 + 20)
-
-        // Draw company
-        ctx.fillStyle = "#c084fc"
-        ctx.font = `${pos.isCenter ? "12px" : "10px"} Inter, sans-serif`
-        ctx.fillText(trainee.company, pos.x, pos.y + pos.size / 2 + 35)
-      }
-
-      // Restore interactive elements
-      removeButtons.forEach((btn) => ((btn as HTMLElement).style.opacity = ""))
-      if (instructions) (instructions as HTMLElement).style.display = ""
-
-      // Download the image
-      const link = document.createElement("a")
-      link.download = `boys-ii-planet-top8-${new Date().toISOString().split("T")[0]}.png`
-      link.href = canvas.toDataURL("image/png", 1.0)
-      link.click()
+      await generateHighQualityImage()
     } catch (error) {
       console.error("Error generating image:", error)
       alert("Failed to generate image. Please try again.")
+    } finally {
+      setIsDownloading(false)
     }
+  }
+
+  const generateHighQualityImage = async () => {
+    const canvas = document.createElement("canvas")
+    const ctx = canvas.getContext("2d")
+    if (!ctx) throw new Error("Could not get canvas context")
+
+    // High resolution canvas
+    const scale = 3
+    canvas.width = 1200 * scale
+    canvas.height = 800 * scale
+    ctx.scale(scale, scale)
+
+    // Enable high quality rendering
+    ctx.imageSmoothingEnabled = true
+    ctx.imageSmoothingQuality = "high"
+
+    // Draw background with gradient
+    const gradient = ctx.createLinearGradient(0, 0, 1200, 800)
+    gradient.addColorStop(0, "#1a0b2e")
+    gradient.addColorStop(0.3, "#16213e")
+    gradient.addColorStop(0.7, "#0f3460")
+    gradient.addColorStop(1, "#1a0b2e")
+    ctx.fillStyle = gradient
+    ctx.fillRect(0, 0, 1200, 800)
+
+    // Add subtle pattern overlay
+    const patternGradient = ctx.createRadialGradient(600, 400, 0, 600, 400, 600)
+    patternGradient.addColorStop(0, "rgba(168, 85, 247, 0.1)")
+    patternGradient.addColorStop(0.5, "rgba(236, 72, 153, 0.05)")
+    patternGradient.addColorStop(1, "rgba(168, 85, 247, 0.02)")
+    ctx.fillStyle = patternGradient
+    ctx.fillRect(0, 0, 1200, 800)
+
+    // Draw title with glow effect
+    ctx.shadowColor = "#e879f9"
+    ctx.shadowBlur = 20
+    ctx.fillStyle = "#e879f9"
+    ctx.font = "bold 36px Inter, sans-serif"
+    ctx.textAlign = "center"
+    ctx.fillText("BOYS II PLANET CONSTELLATION", 600, 70)
+
+    // Reset shadow
+    ctx.shadowBlur = 0
+
+    // Draw subtitle
+    ctx.fillStyle = "#c084fc"
+    ctx.font = "18px Inter, sans-serif"
+    ctx.fillText("My Top 8 Lineup", 600, 100)
+
+    // Draw date
+    ctx.fillStyle = "rgba(255, 255, 255, 0.6)"
+    ctx.font = "14px Inter, sans-serif"
+    ctx.fillText(`Created on ${new Date().toLocaleDateString()}`, 600, 120)
+
+    // Updated position mapping for constellation layout - moved 2nd and 3rd closer to center
+    const canvasPositions = [
+      { x: 600, y: 200, size: 110, isCenter: true, rank: 1 }, // 1st - center top
+      { x: 420, y: 320, size: 90, isCenter: false, rank: 2 }, // 2nd - moved closer to center (from 350 to 420)
+      { x: 780, y: 320, size: 90, isCenter: false, rank: 3 }, // 3rd - moved closer to center (from 850 to 780)
+      { x: 200, y: 480, size: 75, isCenter: false, rank: 4 }, // 4th - left
+      { x: 600, y: 450, size: 85, isCenter: false, rank: 5 }, // 5th - center
+      { x: 1000, y: 480, size: 75, isCenter: false, rank: 6 }, // 6th - right
+      { x: 400, y: 620, size: 75, isCenter: false, rank: 7 }, // 7th - left bottom
+      { x: 800, y: 620, size: 75, isCenter: false, rank: 8 }, // 8th - right bottom
+    ]
+
+    // Draw connecting constellation lines
+    ctx.strokeStyle = "rgba(168, 85, 247, 0.3)"
+    ctx.lineWidth = 2
+    ctx.setLineDash([5, 5])
+
+    // Connect positions in a star pattern
+    const connections = [
+      [0, 1],
+      [0, 2], // Center to 2nd and 3rd
+      [1, 3],
+      [1, 4], // 2nd to 4th and 5th
+      [2, 5],
+      [2, 4], // 3rd to 6th and 5th
+      [4, 6],
+      [4, 7], // 5th to 7th and 8th
+    ]
+
+    connections.forEach(([from, to]) => {
+      if (canvasPositions[from] && canvasPositions[to]) {
+        ctx.beginPath()
+        ctx.moveTo(canvasPositions[from].x, canvasPositions[from].y)
+        ctx.lineTo(canvasPositions[to].x, canvasPositions[to].y)
+        ctx.stroke()
+      }
+    })
+
+    ctx.setLineDash([]) // Reset line dash
+
+    // Draw each trainee
+    for (let i = 0; i < ranking.length; i++) {
+      const trainee = ranking[i]
+      const pos = canvasPositions[i]
+      if (!trainee || !pos) continue
+
+      await drawTraineeOnCanvas(ctx, trainee, pos, i + 1)
+    }
+
+    // Add decorative elements
+    drawDecorations(ctx)
+
+    // Add watermark
+    ctx.fillStyle = "rgba(255, 255, 255, 0.3)"
+    ctx.font = "12px Inter, sans-serif"
+    ctx.textAlign = "right"
+    ctx.fillText("Boys II Planet Ranker", 1180, 780)
+
+    // Download the image
+    const link = document.createElement("a")
+    link.download = `boys-ii-planet-constellation-${new Date().toISOString().split("T")[0]}.png`
+    link.href = canvas.toDataURL("image/png", 1.0)
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  const drawTraineeOnCanvas = async (
+    ctx: CanvasRenderingContext2D,
+    trainee: Trainee,
+    pos: { x: number; y: number; size: number; isCenter: boolean; rank: number },
+    position: number,
+  ) => {
+    const gradeColors = {
+      A: "#ec4899",
+      B: "#a855f7",
+      C: "#3b82f6",
+      D: "#06b6d4",
+      F: "#6b7280",
+    }
+
+    const rankColors = {
+      1: "#fbbf24", // Gold
+      2: "#e5e7eb", // Silver
+      3: "#cd7f32", // Bronze
+    }
+
+    // Draw glow effect for center position
+    if (pos.isCenter) {
+      const glowGradient = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, pos.size)
+      glowGradient.addColorStop(0, "rgba(251, 191, 36, 0.3)")
+      glowGradient.addColorStop(1, "rgba(251, 191, 36, 0)")
+      ctx.fillStyle = glowGradient
+      ctx.fillRect(pos.x - pos.size, pos.y - pos.size, pos.size * 2, pos.size * 2)
+    }
+
+    // Draw main circle
+    ctx.beginPath()
+    ctx.arc(pos.x, pos.y, pos.size / 2, 0, 2 * Math.PI)
+
+    // Fill with grade color
+    ctx.fillStyle = gradeColors[trainee.grade] || "#6b7280"
+    ctx.fill()
+
+    // Border with rank color for top 3
+    ctx.strokeStyle = position <= 3 ? rankColors[position as 1 | 2 | 3] : "#ffffff"
+    ctx.lineWidth = pos.isCenter ? 8 : position <= 3 ? 6 : 4
+    ctx.stroke()
+
+    // Draw position number below the circle with increased spacing
+    ctx.fillStyle = position <= 3 ? rankColors[position as 1 | 2 | 3] : "#ffffff"
+    ctx.font = `bold ${pos.isCenter ? "32px" : position <= 3 ? "24px" : "20px"} Inter, sans-serif`
+    ctx.textAlign = "center"
+
+    // Add shadow for position number
+    ctx.shadowColor = "rgba(0, 0, 0, 0.5)"
+    ctx.shadowBlur = 4
+    // Increased spacing from +25 to +35
+    ctx.fillText(position.toString(), pos.x, pos.y + pos.size / 2 + 35)
+    ctx.shadowBlur = 0
+
+    // Draw trainee name with word wrapping - moved closer to number
+    ctx.fillStyle = "#e879f9"
+    ctx.font = `bold ${pos.isCenter ? "20px" : position <= 3 ? "18px" : "16px"} Inter, sans-serif`
+
+    // Reduced spacing from +55 to +50
+    const nameY = pos.y + pos.size / 2 + 60
+    drawWrappedText(ctx, trainee.name, pos.x, nameY, pos.size + 60, 22)
+
+    // Draw company name - moved closer to name
+    ctx.fillStyle = "#c084fc"
+    ctx.font = `${pos.isCenter ? "16px" : position <= 3 ? "14px" : "12px"} Inter, sans-serif`
+
+    // Reduced spacing from +45/+25 to +35/+20
+    const companyY = nameY + (trainee.name.split(" ").length > 1 ? 25 : 15)
+    drawWrappedText(ctx, trainee.company, pos.x, companyY, pos.size + 80, 18)
+
+    // Draw grade badge
+    const badgeSize = pos.isCenter ? 35 : 28
+    ctx.beginPath()
+    ctx.arc(pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 15, badgeSize / 2, 0, 2 * Math.PI)
+    ctx.fillStyle = gradeColors[trainee.grade]
+    ctx.fill()
+    ctx.strokeStyle = "#ffffff"
+    ctx.lineWidth = 3
+    ctx.stroke()
+
+    ctx.fillStyle = "#ffffff"
+    ctx.font = `bold ${pos.isCenter ? "16px" : "14px"} Inter, sans-serif`
+    ctx.fillText(trainee.grade, pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 20)
+  }
+
+  const drawWrappedText = (
+    ctx: CanvasRenderingContext2D,
+    text: string,
+    x: number,
+    y: number,
+    maxWidth: number,
+    lineHeight: number,
+  ) => {
+    const words = text.split(" ")
+    let line = ""
+    let currentY = y
+
+    for (let n = 0; n < words.length; n++) {
+      const testLine = line + words[n] + " "
+      const metrics = ctx.measureText(testLine)
+      const testWidth = metrics.width
+
+      if (testWidth > maxWidth && n > 0) {
+        ctx.fillText(line.trim(), x, currentY)
+        line = words[n] + " "
+        currentY += lineHeight
+      } else {
+        line = testLine
+      }
+    }
+    ctx.fillText(line.trim(), x, currentY)
+  }
+
+  const drawDecorations = (ctx: CanvasRenderingContext2D) => {
+    // Draw corner decorations
+    const corners = [
+      { x: 50, y: 50 },
+      { x: 1150, y: 50 },
+      { x: 50, y: 750 },
+      { x: 1150, y: 750 },
+    ]
+
+    corners.forEach((corner) => {
+      ctx.strokeStyle = "rgba(168, 85, 247, 0.3)"
+      ctx.lineWidth = 2
+
+      // Draw corner brackets
+      ctx.beginPath()
+      ctx.moveTo(corner.x - 20, corner.y)
+      ctx.lineTo(corner.x, corner.y)
+      ctx.lineTo(corner.x, corner.y - 20)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(corner.x + 20, corner.y)
+      ctx.lineTo(corner.x, corner.y)
+      ctx.lineTo(corner.x, corner.y + 20)
+      ctx.stroke()
+    })
+
+    // Draw small stars
+    const stars = [
+      { x: 150, y: 150 },
+      { x: 1050, y: 150 },
+      { x: 150, y: 650 },
+      { x: 1050, y: 650 },
+      { x: 600, y: 140 },
+    ]
+
+    stars.forEach((star) => {
+      drawStar(ctx, star.x, star.y, 8, 5, 4)
+    })
+  }
+
+  const drawStar = (
+    ctx: CanvasRenderingContext2D,
+    x: number,
+    y: number,
+    outerRadius: number,
+    innerRadius: number,
+    points: number,
+  ) => {
+    ctx.fillStyle = "rgba(251, 191, 36, 0.6)"
+    ctx.beginPath()
+
+    for (let i = 0; i < points * 2; i++) {
+      const radius = i % 2 === 0 ? outerRadius : innerRadius
+      const angle = (i * Math.PI) / points
+      const starX = x + Math.cos(angle) * radius
+      const starY = y + Math.sin(angle) * radius
+
+      if (i === 0) {
+        ctx.moveTo(starX, starY)
+      } else {
+        ctx.lineTo(starX, starY)
+      }
+    }
+
+    ctx.closePath()
+    ctx.fill()
   }
 
   return (
@@ -176,48 +389,47 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
               <polygon points="12,8 18,12 12,16 6,12" />
             </svg>
           </h3>
-          <button className="download-button" onClick={downloadRanking}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7,10 12,15 17,10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Download Image
+          <button className="download-button" onClick={downloadRanking} disabled={isDownloading}>
+            {isDownloading ? (
+              <>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 12a9 9 0 11-6.219-8.56" />
+                </svg>
+                Generating...
+              </>
+            ) : (
+              <>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7,10 12,15 17,10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download Image
+              </>
+            )}
           </button>
         </div>
         <div className="card-content">
           <div ref={constellationRef} className="constellation-container">
-            {/* Formation lines connecting positions */}
-            <svg className="constellation-lines" viewBox="0 0 100 100">
-              {/* Connecting lines for formation */}
+            {/* Updated connecting lines to match new positions */}
+            <svg className="constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="rgba(168, 85, 247, 0.3)" />
-                  <stop offset="50%" stopColor="rgba(236, 72, 153, 0.3)" />
-                  <stop offset="100%" stopColor="rgba(168, 85, 247, 0.3)" />
+                  <stop offset="0%" stopColor="rgba(168, 85, 247, 0.2)" />
+                  <stop offset="50%" stopColor="rgba(236, 72, 153, 0.2)" />
+                  <stop offset="100%" stopColor="rgba(168, 85, 247, 0.2)" />
                 </linearGradient>
               </defs>
 
-              {/* Formation connecting lines */}
-              <line x1="50" y1="65" x2="25" y2="50" stroke="url(#lineGradient)" strokeWidth="0.5" />
-              <line x1="50" y1="65" x2="75" y2="50" stroke="url(#lineGradient)" strokeWidth="0.5" />
-              <line x1="25" y1="50" x2="15" y2="35" stroke="url(#lineGradient)" strokeWidth="0.3" />
-              <line x1="25" y1="50" x2="50" y2="30" stroke="url(#lineGradient)" strokeWidth="0.3" />
-              <line x1="75" y1="50" x2="85" y2="35" stroke="url(#lineGradient)" strokeWidth="0.3" />
-              <line x1="75" y1="50" x2="50" y2="30" stroke="url(#lineGradient)" strokeWidth="0.3" />
-              <line x1="50" y1="30" x2="35" y2="15" stroke="url(#lineGradient)" strokeWidth="0.3" />
-              <line x1="50" y1="30" x2="65" y2="15" stroke="url(#lineGradient)" strokeWidth="0.3" />
-
-              {/* Decorative elements */}
-              <circle
-                cx="50"
-                cy="40"
-                r="25"
-                fill="none"
-                stroke="rgba(255,255,255,0.05)"
-                strokeWidth="0.5"
-                strokeDasharray="3,3"
-              />
+              {/* Updated formation connecting lines - adjusted for new positions */}
+              <line x1="50" y1="20" x2="35" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+              <line x1="50" y1="20" x2="65" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+              <line x1="35" y1="40" x2="15" y2="60" stroke="url(#lineGradient)" strokeWidth="0.2" />
+              <line x1="35" y1="40" x2="50" y2="60" stroke="url(#lineGradient)" strokeWidth="0.2" />
+              <line x1="65" y1="40" x2="85" y2="60" stroke="url(#lineGradient)" strokeWidth="0.2" />
+              <line x1="65" y1="40" x2="50" y2="60" stroke="url(#lineGradient)" strokeWidth="0.2" />
+              <line x1="50" y1="60" x2="32.5" y2="80" stroke="url(#lineGradient)" strokeWidth="0.2" />
+              <line x1="50" y1="60" x2="67.5" y2="80" stroke="url(#lineGradient)" strokeWidth="0.2" />
             </svg>
 
             <div className="constellation-grid">
@@ -251,7 +463,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
 
           <div className="ranking-instructions">
             <p>Drag and drop to reorder • Click X to remove</p>
-            <p className="ranking-subtitle">Center: #1 • Outer Ring: #2-8</p>
+            <p className="ranking-subtitle">1st Place: Top Center • 2nd-3rd: Second Row • 4th-8th: Lower Positions</p>
           </div>
         </div>
       </div>
