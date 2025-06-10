@@ -7,10 +7,14 @@
   backdrop-filter: blur(10px);
   cursor: pointer;
   transition: all 0.2s ease;
+  height: 100px; /* Fixed height for all cards */
+  overflow: hidden;
 }
 
 .trainee-card:hover {
   box-shadow: var(--shadow-secondary);
+  transform: translateY(-2px);
+  border-color: var(--primary-cyan);
 }
 
 .trainee-card.selected {
@@ -28,11 +32,13 @@
   align-items: center;
   padding: var(--spacing-md);
   gap: var(--spacing-md);
+  height: 100%;
 }
 
 /* Trainee Avatar */
 .trainee-avatar-container {
   position: relative;
+  flex-shrink: 0;
 }
 
 .trainee-avatar {
@@ -69,6 +75,8 @@
   color: var(--text-primary);
   font-size: var(--font-size-sm);
   font-weight: bold;
+  z-index: 30;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .grade-badge.grade-a {
@@ -100,6 +108,9 @@
   align-items: center;
   justify-content: center;
   color: #92400e;
+  z-index: 30;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+  animation: goldShimmer 2s ease-in-out infinite;
 }
 
 /* Selected Overlay */
@@ -112,12 +123,16 @@
   align-items: center;
   justify-content: center;
   color: var(--text-primary);
+  z-index: 20;
 }
 
 /* Trainee Info */
 .trainee-info {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .trainee-name {

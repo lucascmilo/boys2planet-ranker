@@ -13,21 +13,21 @@ interface RankingConstellationProps {
   showTop8: boolean
 }
 
-// Updated constellation formation positions - moved 2nd and 3rd closer to center
+// Updated constellation formation positions - all same size
 const getFormationPosition = (index: number) => {
   const positions = [
     // Top row - 1st place (center)
-    { x: 50, y: 20, isCenter: true, size: "large" as const },
-    // Second row - 2nd and 3rd place (moved closer to center)
-    { x: 35, y: 40, isCenter: false, size: "medium" as const }, // moved from 25 to 35
-    { x: 65, y: 40, isCenter: false, size: "medium" as const }, // moved from 75 to 65
+    { x: 50, y: 20, isCenter: false, size: "medium" as const },
+    // Second row - 2nd and 3rd place
+    { x: 35, y: 40, isCenter: false, size: "medium" as const },
+    { x: 65, y: 40, isCenter: false, size: "medium" as const },
     // Third row - 4th, 5th, 6th place
-    { x: 15, y: 60, isCenter: false, size: "small" as const },
+    { x: 15, y: 60, isCenter: false, size: "medium" as const },
     { x: 50, y: 60, isCenter: false, size: "medium" as const },
-    { x: 85, y: 60, isCenter: false, size: "small" as const },
+    { x: 85, y: 60, isCenter: false, size: "medium" as const },
     // Bottom row - 7th and 8th place
-    { x: 32.5, y: 80, isCenter: false, size: "small" as const },
-    { x: 67.5, y: 80, isCenter: false, size: "small" as const },
+    { x: 32.5, y: 80, isCenter: false, size: "medium" as const },
+    { x: 67.5, y: 80, isCenter: false, size: "medium" as const },
   ]
 
   return positions[index] || { x: 50, y: 50, isCenter: false, size: "medium" as const }
@@ -125,16 +125,16 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
     ctx.font = "14px Inter, sans-serif"
     ctx.fillText(`Created on ${new Date().toLocaleDateString()}`, 600, 120)
 
-    // Updated position mapping for constellation layout - moved 2nd and 3rd closer to center
+    // Updated position mapping for constellation layout - all same size
     const canvasPositions = [
-      { x: 600, y: 200, size: 110, isCenter: true, rank: 1 }, // 1st - center top
-      { x: 420, y: 320, size: 90, isCenter: false, rank: 2 }, // 2nd - moved closer to center (from 350 to 420)
-      { x: 780, y: 320, size: 90, isCenter: false, rank: 3 }, // 3rd - moved closer to center (from 850 to 780)
-      { x: 200, y: 480, size: 75, isCenter: false, rank: 4 }, // 4th - left
-      { x: 600, y: 450, size: 85, isCenter: false, rank: 5 }, // 5th - center
-      { x: 1000, y: 480, size: 75, isCenter: false, rank: 6 }, // 6th - right
-      { x: 400, y: 620, size: 75, isCenter: false, rank: 7 }, // 7th - left bottom
-      { x: 800, y: 620, size: 75, isCenter: false, rank: 8 }, // 8th - right bottom
+      { x: 600, y: 200, size: 90, isCenter: false, rank: 1 }, // 1st - same size as others
+      { x: 420, y: 320, size: 90, isCenter: false, rank: 2 }, // 2nd
+      { x: 780, y: 320, size: 90, isCenter: false, rank: 3 }, // 3rd
+      { x: 200, y: 480, size: 90, isCenter: false, rank: 4 }, // 4th
+      { x: 600, y: 450, size: 90, isCenter: false, rank: 5 }, // 5th
+      { x: 1000, y: 480, size: 90, isCenter: false, rank: 6 }, // 6th
+      { x: 400, y: 620, size: 90, isCenter: false, rank: 7 }, // 7th
+      { x: 800, y: 620, size: 90, isCenter: false, rank: 8 }, // 8th
     ]
 
     // Draw connecting constellation lines
@@ -169,7 +169,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
     for (let i = 0; i < ranking.length; i++) {
       const trainee = ranking[i]
       const pos = canvasPositions[i]
-      if (!trainee || !pos) continue
+      if (!pos) continue
 
       await drawTraineeOnCanvas(ctx, trainee, pos, i + 1)
     }
@@ -194,7 +194,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
 
   const drawTraineeOnCanvas = async (
     ctx: CanvasRenderingContext2D,
-    trainee: Trainee,
+    trainee: Trainee | null,
     pos: { x: number; y: number; size: number; isCenter: boolean; rank: number },
     position: number,
   ) => {
@@ -212,69 +212,68 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
       3: "#cd7f32", // Bronze
     }
 
-    // Draw glow effect for center position
-    if (pos.isCenter) {
-      const glowGradient = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, pos.size)
-      glowGradient.addColorStop(0, "rgba(251, 191, 36, 0.3)")
-      glowGradient.addColorStop(1, "rgba(251, 191, 36, 0)")
-      ctx.fillStyle = glowGradient
-      ctx.fillRect(pos.x - pos.size, pos.y - pos.size, pos.size * 2, pos.size * 2)
-    }
-
-    // Draw main circle
+    // Draw main circle (even if no trainee)
     ctx.beginPath()
     ctx.arc(pos.x, pos.y, pos.size / 2, 0, 2 * Math.PI)
 
-    // Fill with grade color
-    ctx.fillStyle = gradeColors[trainee.grade] || "#6b7280"
-    ctx.fill()
+    if (trainee) {
+      // Fill with grade color
+      ctx.fillStyle = gradeColors[trainee.grade] || "#6b7280"
+      ctx.fill()
 
-    // Border with rank color for top 3
-    ctx.strokeStyle = position <= 3 ? rankColors[position as 1 | 2 | 3] : "#ffffff"
-    ctx.lineWidth = pos.isCenter ? 8 : position <= 3 ? 6 : 4
-    ctx.stroke()
+      // Border with rank color for top 3
+      ctx.strokeStyle = position <= 3 ? rankColors[position as 1 | 2 | 3] : "#ffffff"
+      ctx.lineWidth = position <= 3 ? 6 : 4
+      ctx.stroke()
+    } else {
+      // Empty slot styling
+      ctx.fillStyle = "rgba(42, 27, 74, 0.5)"
+      ctx.fill()
+      ctx.strokeStyle = "#4b5563"
+      ctx.lineWidth = 4
+      ctx.stroke()
+    }
 
-    // Draw position number below the circle with increased spacing
+    // Draw position number below the circle
     ctx.fillStyle = position <= 3 ? rankColors[position as 1 | 2 | 3] : "#ffffff"
-    ctx.font = `bold ${pos.isCenter ? "32px" : position <= 3 ? "24px" : "20px"} Inter, sans-serif`
+    ctx.font = `bold ${position <= 3 ? "24px" : "20px"} Inter, sans-serif`
     ctx.textAlign = "center"
 
     // Add shadow for position number
     ctx.shadowColor = "rgba(0, 0, 0, 0.5)"
     ctx.shadowBlur = 4
-    // Increased spacing from +25 to +35
     ctx.fillText(position.toString(), pos.x, pos.y + pos.size / 2 + 35)
     ctx.shadowBlur = 0
 
-    // Draw trainee name with word wrapping - moved closer to number
-    ctx.fillStyle = "#e879f9"
-    ctx.font = `bold ${pos.isCenter ? "20px" : position <= 3 ? "18px" : "16px"} Inter, sans-serif`
+    if (trainee) {
+      // Draw trainee name with word wrapping
+      ctx.fillStyle = "#e879f9"
+      ctx.font = `bold ${position <= 3 ? "18px" : "16px"} Inter, sans-serif`
 
-    // Reduced spacing from +55 to +50
-    const nameY = pos.y + pos.size / 2 + 60
-    drawWrappedText(ctx, trainee.name, pos.x, nameY, pos.size + 60, 22)
+      const nameY = pos.y + pos.size / 2 + 60
+      drawWrappedText(ctx, trainee.name, pos.x, nameY, pos.size + 60, 22)
 
-    // Draw company name - moved closer to name
-    ctx.fillStyle = "#c084fc"
-    ctx.font = `${pos.isCenter ? "16px" : position <= 3 ? "14px" : "12px"} Inter, sans-serif`
+      // Draw company name
+      ctx.fillStyle = "#c084fc"
+      ctx.font = `${position <= 3 ? "14px" : "12px"} Inter, sans-serif`
 
-    // Reduced spacing from +45/+25 to +35/+20
-    const companyY = nameY + (trainee.name.split(" ").length > 1 ? 25 : 15)
-    drawWrappedText(ctx, trainee.company, pos.x, companyY, pos.size + 80, 18)
+      const companyY = nameY + (trainee.name.split(" ").length > 1 ? 25 : 15)
+      drawWrappedText(ctx, trainee.company, pos.x, companyY, pos.size + 80, 18)
 
-    // Draw grade badge
-    const badgeSize = pos.isCenter ? 35 : 28
-    ctx.beginPath()
-    ctx.arc(pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 15, badgeSize / 2, 0, 2 * Math.PI)
-    ctx.fillStyle = gradeColors[trainee.grade]
-    ctx.fill()
-    ctx.strokeStyle = "#ffffff"
-    ctx.lineWidth = 3
-    ctx.stroke()
+      // Draw grade badge
+      const badgeSize = 28
+      ctx.beginPath()
+      ctx.arc(pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 15, badgeSize / 2, 0, 2 * Math.PI)
+      ctx.fillStyle = gradeColors[trainee.grade]
+      ctx.fill()
+      ctx.strokeStyle = "#ffffff"
+      ctx.lineWidth = 3
+      ctx.stroke()
 
-    ctx.fillStyle = "#ffffff"
-    ctx.font = `bold ${pos.isCenter ? "16px" : "14px"} Inter, sans-serif`
-    ctx.fillText(trainee.grade, pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 20)
+      ctx.fillStyle = "#ffffff"
+      ctx.font = "bold 14px Inter, sans-serif"
+      ctx.fillText(trainee.grade, pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 20)
+    }
   }
 
   const drawWrappedText = (
@@ -433,8 +432,10 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
             </svg>
 
             <div className="constellation-grid">
-              {ranking.map((trainee, index) => {
+              {/* Always render all 8 slots to maintain consistent layout */}
+              {Array.from({ length: 8 }, (_, index) => {
                 const position = getFormationPosition(index)
+                const trainee = ranking[index] || null
                 return (
                   <RankingSlot
                     key={index}
@@ -463,7 +464,6 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
 
           <div className="ranking-instructions">
             <p>Drag and drop to reorder • Click X to remove</p>
-            <p className="ranking-subtitle">1st Place: Top Center • 2nd-3rd: Second Row • 4th-8th: Lower Positions</p>
           </div>
         </div>
       </div>

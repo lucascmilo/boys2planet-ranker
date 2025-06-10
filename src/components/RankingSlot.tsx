@@ -33,34 +33,13 @@ const gradeColors = {
   F: "grade-f",
 }
 
-const getAvatarSize = (size = "medium", isCenter = false) => {
-  if (isCenter) return "7rem"
-
-  switch (size) {
-    case "large":
-      return "6rem"
-    case "medium":
-      return "4.5rem"
-    case "small":
-      return "3.5rem"
-    default:
-      return "4.5rem"
-  }
+// All slots now have the same size
+const getAvatarSize = () => {
+  return "4.5rem" // Same size for all
 }
 
-const getBadgeSize = (size = "medium", isCenter = false) => {
-  if (isCenter) return "3rem"
-
-  switch (size) {
-    case "large":
-      return "2.5rem"
-    case "medium":
-      return "2rem"
-    case "small":
-      return "1.75rem"
-    default:
-      return "2rem"
-  }
+const getBadgeSize = () => {
+  return "2rem" // Same size for all
 }
 
 export const RankingSlot: React.FC<RankingSlotProps> = ({
@@ -81,15 +60,15 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
     e.preventDefault()
   }
 
-  const avatarSize = getAvatarSize(size, isCenter)
-  const badgeSize = getBadgeSize(size, isCenter)
+  const avatarSize = getAvatarSize()
+  const badgeSize = getBadgeSize()
 
   return (
     <div className="ranking-slot" style={style}>
       <div
         className={`ranking-avatar-container ${trainee ? gradeColors[trainee.grade] : "empty"} ${
           isDragging ? "dragging" : ""
-        } ${isCenter ? "center-position" : ""} ${size === "large" ? "large-position" : ""}`}
+        }`}
         style={{ width: avatarSize, height: avatarSize }}
         draggable={!!trainee}
         onDragStart={trainee ? onDragStart : undefined}
@@ -97,8 +76,8 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
         onDragOver={handleDragOver}
         onDrop={onDrop}
       >
-        {/* Enhanced glow for center position */}
-        <div className={`star-glow ${isCenter ? "center-glow" : ""}`}></div>
+        {/* Star glow - same for all positions */}
+        <div className="star-glow"></div>
 
         {trainee ? (
           <>
@@ -138,14 +117,7 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
           </>
         ) : (
           <div className="empty-slot">
-            <svg
-              width={isCenter ? "32" : "24"}
-              height={isCenter ? "32" : "24"}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" />
               <polygon points="12,8 18,12 12,16 6,12" />
             </svg>
@@ -153,17 +125,14 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
         )}
       </div>
 
-      {/* Position Badge */}
-      <div
-        className={`position-badge ${getPositionClass(position)} ${isCenter ? "center-badge" : ""}`}
-        style={{ width: badgeSize, height: badgeSize }}
-      >
+      {/* Position Badge - same size for all */}
+      <div className={`position-badge ${getPositionClass(position)}`} style={{ width: badgeSize, height: badgeSize }}>
         {position}
       </div>
 
-      {/* Trainee Info - Improved spacing and visibility */}
+      {/* Trainee Info - same size for all */}
       {trainee && (
-        <div className={`ranking-info ${isCenter ? "center-info" : ""}`}>
+        <div className="ranking-info">
           <p className="ranking-name">{trainee.name}</p>
           <p className="ranking-company">{trainee.company}</p>
         </div>

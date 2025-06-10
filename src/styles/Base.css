@@ -7,16 +7,20 @@
 }
 
 :root {
-  /* Cores principais */
+  /* Cores principais - Enhanced with more cosmic colors */
   --primary-purple: #a855f7;
   --primary-pink: #e879f9;
   --primary-blue: #3b82f6;
   --primary-cyan: #06b6d4;
   --primary-gray: #6b7280;
   --primary-gold: #fbbf24;
+  --cosmic-purple: #5b21b6;
+  --cosmic-blue: #1e3a8a;
+  --cosmic-pink: #be185d;
+  --cosmic-indigo: #4338ca;
 
-  /* Cores de fundo */
-  --bg-primary: #0c0414;
+  /* Cores de fundo - Darker, more cosmic */
+  --bg-primary: #050215;
   --bg-secondary: rgba(26, 16, 51, 0.8);
   --bg-tertiary: #2a1b4a;
 
@@ -65,6 +69,26 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.5;
+  overflow-y: scroll;
+}
+
+/* Global scrollbar styling */
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(90, 24, 154, 0.1);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(138, 43, 226, 0.5);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(138, 43, 226, 0.7);
 }
 
 /* Grade colors */

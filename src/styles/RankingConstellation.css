@@ -16,17 +16,32 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.7);
 }
 
 .constellation-container {
   position: relative;
   width: 100%;
-  height: 750px; /* Increased from 650px to 750px */
-  margin: var(--spacing-xl) 0;
+  height: 450px; /* Reduced from 750px to match trainee list */
+  margin: var(--spacing-md) 0; /* Reduced from xl */
   background: radial-gradient(circle at center, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md); /* Reduced from lg */
+}
+
+.constellation-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/space-bg.jpg"),
+    radial-gradient(circle at 30% 40%, rgba(91, 33, 182, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(190, 24, 93, 0.2) 0%, transparent 50%);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+  filter: blur(2px);
 }
 
 .constellation-lines {
@@ -46,9 +61,10 @@
 
 .ranking-instructions {
   text-align: center;
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-md); /* Reduced from lg */
   color: var(--text-tertiary);
   font-size: var(--font-size-base);
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
 .ranking-subtitle {
@@ -110,8 +126,8 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .constellation-container {
-    height: 550px;
-    padding: var(--spacing-md);
+    height: 400px; /* Reduced proportionally */
+    padding: var(--spacing-sm); /* Reduced padding */
   }
 
   .download-button {
@@ -123,8 +139,8 @@
 
 @media (max-width: 480px) {
   .constellation-container {
-    height: 500px;
-    padding: var(--spacing-sm);
+    height: 350px; /* Reduced proportionally */
+    padding: var(--spacing-xs); /* Further reduced padding */
   }
 
   .ranking-title {
