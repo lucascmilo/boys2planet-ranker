@@ -1,0 +1,162 @@
+/* TraineeCard Component Styles */
+
+.trainee-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trainee-card:hover {
+  box-shadow: var(--shadow-secondary);
+}
+
+.trainee-card.selected {
+  border-color: var(--primary-purple);
+  background: rgba(147, 51, 234, 0.3);
+  box-shadow: 0 0 0 2px var(--primary-purple);
+}
+
+.trainee-card.eliminated {
+  opacity: 0.6;
+}
+
+.trainee-card-content {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+/* Trainee Avatar */
+.trainee-avatar-container {
+  position: relative;
+}
+
+.trainee-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-full);
+  border: 4px solid;
+  overflow: hidden;
+  position: relative;
+}
+
+.trainee-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+}
+
+.trainee-image.grayscale {
+  filter: grayscale(100%);
+}
+
+/* Grade Badge */
+.grade-badge {
+  position: absolute;
+  bottom: -0.25rem;
+  right: -0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+}
+
+.grade-badge.grade-a {
+  background: #ec4899;
+}
+.grade-badge.grade-b {
+  background: var(--primary-purple);
+}
+.grade-badge.grade-c {
+  background: var(--primary-blue);
+}
+.grade-badge.grade-d {
+  background: var(--primary-cyan);
+}
+.grade-badge.grade-f {
+  background: var(--primary-gray);
+}
+
+/* Crown Badge */
+.crown-badge {
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--primary-gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #92400e;
+}
+
+/* Selected Overlay */
+.selected-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(168, 85, 247, 0.8);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+/* Trainee Info */
+.trainee-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.trainee-name {
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 0.25rem 0;
+  font-size: var(--font-size-base);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trainee-korean {
+  color: var(--text-tertiary);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trainee-details {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.company-badge {
+  padding: 0.125rem var(--spacing-sm);
+  background: transparent;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+}
+
+.birth-year {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+}

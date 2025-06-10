@@ -1,38 +1,17 @@
-.App {
-  text-align: center;
-}
+/* App.css - Arquivo principal que carrega todos os módulos CSS */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Estilos base e globais */
+@import "./styles/Base.css";
+@import "./styles/Layout.css";
+@import "./styles/Animations.css";
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Componentes */
+@import "./styles/Header.css";
+@import "./styles/TraineeCard.css";
+@import "./styles/TraineeList.css";
+@import "./styles/RankingSlot.css";
+@import "./styles/RankingConstellation.css";
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Utilitários e responsividade */
+@import "./styles/Utilities.css";
+@import "./styles/Responsive.css";

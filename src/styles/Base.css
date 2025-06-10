@@ -1,0 +1,90 @@
+/* Base styles - Reset e estilos fundamentais */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Cores principais */
+  --primary-purple: #a855f7;
+  --primary-pink: #e879f9;
+  --primary-blue: #3b82f6;
+  --primary-cyan: #06b6d4;
+  --primary-gray: #6b7280;
+  --primary-gold: #fbbf24;
+
+  /* Cores de fundo */
+  --bg-primary: #0c0414;
+  --bg-secondary: rgba(26, 16, 51, 0.8);
+  --bg-tertiary: #2a1b4a;
+
+  /* Cores de texto */
+  --text-primary: #ffffff;
+  --text-secondary: #e879f9;
+  --text-tertiary: #c084fc;
+  --text-muted: #a78bfa;
+
+  /* Bordas e sombras */
+  --border-primary: rgba(168, 85, 247, 0.3);
+  --border-secondary: rgba(168, 85, 247, 0.2);
+  --shadow-primary: 0 4px 15px rgba(168, 85, 247, 0.3);
+  --shadow-secondary: 0 4px 20px rgba(168, 85, 247, 0.2);
+
+  /* Espaçamentos */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 4rem;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 50%;
+
+  /* Fontes */
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  --font-size-xs: 0.625rem;
+  --font-size-sm: 0.75rem;
+  --font-size-base: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.125rem;
+  --font-size-2xl: 1.25rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3.5rem;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Grade colors */
+.grade-a {
+  border-color: #ec4899;
+  background: rgba(236, 72, 153, 0.2);
+}
+.grade-b {
+  border-color: var(--primary-purple);
+  background: rgba(168, 85, 247, 0.2);
+}
+.grade-c {
+  border-color: var(--primary-blue);
+  background: rgba(59, 130, 246, 0.2);
+}
+.grade-d {
+  border-color: var(--primary-cyan);
+  background: rgba(6, 182, 212, 0.2);
+}
+.grade-f {
+  border-color: var(--primary-gray);
+  background: rgba(107, 114, 128, 0.2);
+}

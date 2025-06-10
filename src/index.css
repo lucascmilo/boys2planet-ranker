@@ -1,13 +1,107 @@
-body {
+/* Reset e estilos base */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  background: #0c0414;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Estilos globais de cartões */
+.card {
+  background: rgba(26, 16, 51, 0.8);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card-title {
+  color: #e879f9;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+/* Animações globais */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes centerPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes goldShimmer {
+  0%,
+  100% {
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 35px rgba(251, 191, 36, 0.6);
+  }
+}
+
+/* Responsividade global */
+@media (max-width: 1024px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .main-grid {
+    gap: 1rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Estilos para telas muito pequenas */
 }

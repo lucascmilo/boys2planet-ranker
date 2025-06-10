@@ -1,0 +1,86 @@
+/* Animations - Todas as animações do projeto */
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes centerPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes goldShimmer {
+  0%,
+  100% {
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 35px rgba(251, 191, 36, 0.6);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Animation classes */
+.animate-pulse {
+  animation: pulse 3s ease-in-out infinite;
+}
+.animate-center-pulse {
+  animation: centerPulse 4s ease-in-out infinite;
+}
+.animate-gold-shimmer {
+  animation: goldShimmer 2s ease-in-out infinite;
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Transition utilities */
+.transition-all {
+  transition: all 0.2s ease;
+}
+.transition-colors {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.transition-transform {
+  transition: transform 0.2s ease;
+}
+.transition-opacity {
+  transition: opacity 0.2s ease;
+}

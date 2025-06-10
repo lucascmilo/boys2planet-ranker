@@ -1,0 +1,79 @@
+/* Header Component Styles */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-2xl) var(--spacing-md);
+  text-align: center;
+}
+
+.header-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a0b2e 0%, #16213e 50%, #0f3460 100%);
+  opacity: 0.8;
+}
+
+.header-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.header-icon {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+.header-title {
+  font-size: var(--font-size-5xl);
+  font-weight: 900;
+  background: linear-gradient(to right, var(--text-primary), var(--text-secondary), var(--text-primary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.05em;
+}
+
+.header-subtitle-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header-subtitle {
+  font-size: var(--font-size-2xl);
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.header-description {
+  color: var(--text-tertiary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.header-badge {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-primary);
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+}
