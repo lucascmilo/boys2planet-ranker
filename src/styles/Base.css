@@ -7,34 +7,36 @@
 }
 
 :root {
-  /* Cores principais - Enhanced with more cosmic colors */
-  --primary-purple: #a855f7;
-  --primary-pink: #e879f9;
+  /* Cores principais - Baseadas na imagem cósmica */
+  --primary-purple: #6366f1;
+  --primary-pink: #ec4899;
   --primary-blue: #3b82f6;
   --primary-cyan: #06b6d4;
   --primary-gray: #6b7280;
   --primary-gold: #fbbf24;
-  --cosmic-purple: #5b21b6;
-  --cosmic-blue: #1e3a8a;
+  --cosmic-purple: #4c1d95;
+  --cosmic-blue: #1e1b4b;
   --cosmic-pink: #be185d;
-  --cosmic-indigo: #4338ca;
+  --cosmic-indigo: #312e81;
+  --cosmic-deep: #0f0f23;
+  --cosmic-dark: #1a1a2e;
 
-  /* Cores de fundo - Darker, more cosmic */
-  --bg-primary: #050215;
-  --bg-secondary: rgba(26, 16, 51, 0.8);
-  --bg-tertiary: #2a1b4a;
+  /* Cores de fundo - Mais escuras e cósmicas */
+  --bg-primary: #0f0f23;
+  --bg-secondary: rgba(26, 26, 46, 0.9);
+  --bg-tertiary: #1a1a2e;
 
   /* Cores de texto */
   --text-primary: #ffffff;
-  --text-secondary: #e879f9;
-  --text-tertiary: #c084fc;
-  --text-muted: #a78bfa;
+  --text-secondary: #a5b4fc;
+  --text-tertiary: #c7d2fe;
+  --text-muted: #818cf8;
 
   /* Bordas e sombras */
-  --border-primary: rgba(168, 85, 247, 0.3);
-  --border-secondary: rgba(168, 85, 247, 0.2);
-  --shadow-primary: 0 4px 15px rgba(168, 85, 247, 0.3);
-  --shadow-secondary: 0 4px 20px rgba(168, 85, 247, 0.2);
+  --border-primary: rgba(99, 102, 241, 0.3);
+  --border-secondary: rgba(99, 102, 241, 0.2);
+  --shadow-primary: 0 4px 15px rgba(99, 102, 241, 0.3);
+  --shadow-secondary: 0 4px 20px rgba(99, 102, 241, 0.2);
 
   /* Espaçamentos */
   --spacing-xs: 0.25rem;
@@ -78,27 +80,27 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: rgba(90, 24, 154, 0.1);
+  background: rgba(99, 102, 241, 0.1);
   border-radius: 3px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: rgba(138, 43, 226, 0.5);
+  background: rgba(99, 102, 241, 0.5);
   border-radius: 3px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: rgba(138, 43, 226, 0.7);
+  background: rgba(99, 102, 241, 0.7);
 }
 
-/* Grade colors */
+/* Grade colors - Atualizadas para a nova paleta */
 .grade-a {
   border-color: #ec4899;
   background: rgba(236, 72, 153, 0.2);
 }
 .grade-b {
   border-color: var(--primary-purple);
-  background: rgba(168, 85, 247, 0.2);
+  background: rgba(99, 102, 241, 0.2);
 }
 .grade-c {
   border-color: var(--primary-blue);
