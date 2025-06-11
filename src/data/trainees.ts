@@ -8,7 +8,7 @@ export const trainees: Trainee[] = [
     "company": "JYP China",
     "grade": "A",
     "birthYear": 2005,
-    "image": "/images/kim-jiwoong.jpg",
+    "image": "/images/he-xinlong.jpg",
     "selected": false,
     "eliminated": false,
     "top12": false
@@ -20,7 +20,7 @@ export const trainees: Trainee[] = [
     "company": "JYP China",
     "grade": "A",
     "birthYear": 2004,
-    "image": "/images/kim-jiwoong.jpg",
+    "image": "/images/jia-hanyu.jpg",
     "selected": false,
     "eliminated": false,
     "top12": false
@@ -32,7 +32,7 @@ export const trainees: Trainee[] = [
     "company": "JYP China",
     "grade": "A",
     "birthYear": 2004,
-    "image": "/images/kim-jiwoong.jpg",
+    "image": "/images/li-zihao.jpg",
     "selected": false,
     "eliminated": false,
     "top12": false
