@@ -50,6 +50,34 @@
   box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
 }
 
+/* Clear Search Button */
+.clear-search-button {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.clear-search-button:hover {
+  color: var(--text-primary);
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.clear-search-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
 /* Filter Controls */
 .filter-controls {
   display: flex;
