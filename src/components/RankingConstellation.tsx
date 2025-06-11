@@ -165,7 +165,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
 
     ctx.setLineDash([]) // Reset line dash
 
-    // Draw each trainee
+    // Draw each trainee - await all image loading
     for (let i = 0; i < ranking.length; i++) {
       const trainee = ranking[i]
       const pos = canvasPositions[i]
@@ -181,7 +181,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
     ctx.fillStyle = "rgba(255, 255, 255, 0.3)"
     ctx.font = "12px Inter, sans-serif"
     ctx.textAlign = "right"
-    ctx.fillText("Boys II Planet Ranker", 1180, 780)
+    ctx.fillText("boys2planet-ranker.netlify.app", 1180, 780)
 
     // Download the image
     const link = document.createElement("a")
@@ -212,21 +212,50 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
       3: "#cd7f32", // Bronze
     }
 
-    // Draw main circle (even if no trainee)
-    ctx.beginPath()
-    ctx.arc(pos.x, pos.y, pos.size / 2, 0, 2 * Math.PI)
-
     if (trainee) {
-      // Fill with grade color
-      ctx.fillStyle = gradeColors[trainee.grade] || "#6b7280"
-      ctx.fill()
+      // Load and draw trainee image
+      try {
+        const img = new Image()
+        img.crossOrigin = "anonymous"
 
-      // Border with rank color for top 3
-      ctx.strokeStyle = position <= 3 ? rankColors[position as 1 | 2 | 3] : "#ffffff"
-      ctx.lineWidth = position <= 3 ? 6 : 4
-      ctx.stroke()
+        await new Promise<void>((resolve, reject) => {
+          img.onload = () => resolve()
+          img.onerror = () => reject(new Error(`Failed to load image: ${trainee.image}`))
+          img.src = trainee.image || "/placeholder.svg?height=80&width=80"
+        })
+
+        // Draw circular clipped image
+        ctx.save()
+        ctx.beginPath()
+        ctx.arc(pos.x, pos.y, pos.size / 2, 0, 2 * Math.PI)
+        ctx.clip()
+
+        // Draw the image
+        ctx.drawImage(img, pos.x - pos.size / 2, pos.y - pos.size / 2, pos.size, pos.size)
+        ctx.restore()
+
+        // Draw border
+        ctx.beginPath()
+        ctx.arc(pos.x, pos.y, pos.size / 2, 0, 2 * Math.PI)
+        ctx.strokeStyle = position <= 3 ? rankColors[position as 1 | 2 | 3] : "#ffffff"
+        ctx.lineWidth = position <= 3 ? 6 : 4
+        ctx.stroke()
+      } catch (error) {
+        console.warn(`Failed to load image for ${trainee.name}:`, error)
+
+        // Fallback: draw colored circle if image fails to load
+        ctx.beginPath()
+        ctx.arc(pos.x, pos.y, pos.size / 2, 0, 2 * Math.PI)
+        ctx.fillStyle = gradeColors[trainee.grade] || "#6b7280"
+        ctx.fill()
+        ctx.strokeStyle = position <= 3 ? rankColors[position as 1 | 2 | 3] : "#ffffff"
+        ctx.lineWidth = position <= 3 ? 6 : 4
+        ctx.stroke()
+      }
     } else {
       // Empty slot styling
+      ctx.beginPath()
+      ctx.arc(pos.x, pos.y, pos.size / 2, 0, 2 * Math.PI)
       ctx.fillStyle = "rgba(42, 27, 74, 0.5)"
       ctx.fill()
       ctx.strokeStyle = "#4b5563"
