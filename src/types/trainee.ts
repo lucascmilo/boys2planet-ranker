@@ -3,7 +3,7 @@ export interface Trainee {
   name: string
   nameKorean: string
   company: string
-  grade: "A" | "B" | "C" | "D" | "F"
+  grade: "A" | "B" | "C" | "D" | "F" | "?"
   birthYear: number
   image: string
   selected: boolean
