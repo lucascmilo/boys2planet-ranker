@@ -17,41 +17,39 @@ interface RankingConstellationProps {
 const getDesktopFormationPosition = (index: number) => {
   const positions = [
     // 1st place (top center)
-    { x: 50, y: 20, isCenter: false, size: "medium" as const },
+    { x: 50, y: 20, isCenter: false, size: "small" as const },
     // 2nd and 3rd place (second row)
-    { x: 35, y: 40, isCenter: false, size: "medium" as const },
-    { x: 65, y: 40, isCenter: false, size: "medium" as const },
+    { x: 35, y: 40, isCenter: false, size: "small" as const },
+    { x: 65, y: 40, isCenter: false, size: "small" as const },
     // 4th, 5th, 6th place (third row) - POSIÇÕES AJUSTADAS: 20%, 50%, 80%
-    { x: 20, y: 65, isCenter: false, size: "medium" as const },
-    { x: 50, y: 65, isCenter: false, size: "medium" as const },
-    { x: 80, y: 65, isCenter: false, size: "medium" as const },
+    { x: 20, y: 65, isCenter: false, size: "small" as const },
+    { x: 50, y: 65, isCenter: false, size: "small" as const },
+    { x: 80, y: 65, isCenter: false, size: "small" as const },
     // 7th and 8th place (bottom row)
-    { x: 35, y: 85, isCenter: false, size: "medium" as const },
-    { x: 65, y: 85, isCenter: false, size: "medium" as const },
+    { x: 35, y: 85, isCenter: false, size: "small" as const },
+    { x: 65, y: 85, isCenter: false, size: "small" as const },
   ]
 
-  return positions[index] || { x: 50, y: 50, isCenter: false, size: "medium" as const }
+  return positions[index] || { x: 50, y: 50, isCenter: false, size: "small" as const }
 }
 
 // Mobile: Pyramid formation (1-3-4) com espaçamento vertical equalizado
 const getMobileFormationPosition = (index: number) => {
   const positions = [
     // 1st place (top center)
-    { x: 50, y: 15, isCenter: false, size: "medium" as const }, // Ajustado para Y=15
-    // 2nd, 3rd, 6th place (second row - 3 positions) - Espaçamento equalizado
-    { x: 18, y: 40, isCenter: false, size: "medium" as const }, // Ajustado para Y=40
-    { x: 50, y: 40, isCenter: false, size: "medium" as const }, // Ajustado para Y=40
-    // 4th, 5th, 7th, 8th place (bottom row - 4 positions) - Espaçamento equalizado
-    { x: 8, y: 65, isCenter: false, size: "medium" as const }, // Ajustado para X=8 (mais margem)
-    { x: 32, y: 65, isCenter: false, size: "medium" as const },
-    // 6th position goes to second row
-    { x: 82, y: 40, isCenter: false, size: "medium" as const }, // Ajustado para Y=40
-    // 7th and 8th continue bottom row - MAIS ESPAÇAMENTO HORIZONTAL
-    { x: 68, y: 65, isCenter: false, size: "medium" as const },
-    { x: 92, y: 65, isCenter: false, size: "medium" as const }, // Ajustado para X=92 (mais margem)
+    { x: 50, y: 15, isCenter: false, size: "small" as const },
+    // 2nd, 3rd, 4th place (middle row - 3 positions)
+    { x: 20, y: 40, isCenter: false, size: "small" as const },
+    { x: 50, y: 40, isCenter: false, size: "small" as const },
+    { x: 80, y: 40, isCenter: false, size: "small" as const },
+    // 5th, 6th, 7th, 8th place (bottom row - 4 positions)
+    { x: 15, y: 65, isCenter: false, size: "small" as const },
+    { x: 38, y: 65, isCenter: false, size: "small" as const },
+    { x: 62, y: 65, isCenter: false, size: "small" as const },
+    { x: 85, y: 65, isCenter: false, size: "small" as const },
   ]
 
-  return positions[index] || { x: 50, y: 50, isCenter: false, size: "medium" as const }
+  return positions[index] || { x: 50, y: 50, isCenter: false, size: "small" as const }
 }
 
 export const RankingConstellation: React.FC<RankingConstellationProps> = ({
@@ -166,14 +164,14 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
 
     // Always use desktop positions for canvas (download)
     const canvasPositions = [
-      { x: 600, y: 160, size: 90, isCenter: false, rank: 1 }, // 1st - top center
-      { x: 420, y: 320, size: 90, isCenter: false, rank: 2 }, // 2nd - left
-      { x: 780, y: 320, size: 90, isCenter: false, rank: 3 }, // 3rd - right
-      { x: 240, y: 520, size: 90, isCenter: false, rank: 4 }, // 4th - 20% (240px de 1200px)
-      { x: 600, y: 520, size: 90, isCenter: false, rank: 5 }, // 5th - center
-      { x: 960, y: 520, size: 90, isCenter: false, rank: 6 }, // 6th - 80% (960px de 1200px)
-      { x: 420, y: 680, size: 90, isCenter: false, rank: 7 }, // 7th - bottom left
-      { x: 780, y: 680, size: 90, isCenter: false, rank: 8 }, // 8th - bottom right
+      { x: 600, y: 200, size: 90, isCenter: false, rank: 1 }, // 1st - same size as others
+      { x: 420, y: 320, size: 90, isCenter: false, rank: 2 }, // 2nd
+      { x: 780, y: 320, size: 90, isCenter: false, rank: 3 }, // 3rd
+      { x: 200, y: 480, size: 90, isCenter: false, rank: 4 }, // 4th
+      { x: 600, y: 450, size: 90, isCenter: false, rank: 5 }, // 5th
+      { x: 1000, y: 480, size: 90, isCenter: false, rank: 6 }, // 6th
+      { x: 400, y: 620, size: 90, isCenter: false, rank: 7 }, // 7th
+      { x: 800, y: 620, size: 90, isCenter: false, rank: 8 }, // 8th
     ]
 
     // Draw connecting constellation lines
@@ -456,18 +454,27 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
             </linearGradient>
           </defs>
 
-          {/* Top to second row */}
-          <line x1="50" y1="15" x2="18" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+          {/* Top to middle row (1 to 3 positions) */}
+          <line x1="50" y1="15" x2="20" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
           <line x1="50" y1="15" x2="50" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
-          <line x1="50" y1="15" x2="82" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+          <line x1="50" y1="15" x2="80" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
 
-          {/* Second row to bottom row */}
-          <line x1="18" y1="40" x2="8" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
-          <line x1="18" y1="40" x2="32" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
-          <line x1="50" y1="40" x2="32" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
-          <line x1="50" y1="40" x2="68" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
-          <line x1="82" y1="40" x2="68" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
-          <line x1="82" y1="40" x2="92" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          {/* Middle row connections (3 positions) */}
+          <line x1="20" y1="40" x2="50" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+          <line x1="50" y1="40" x2="80" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+
+          {/* Middle row to bottom row (3 to 4 positions) */}
+          <line x1="20" y1="40" x2="15" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="20" y1="40" x2="38" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="50" y1="40" x2="38" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="50" y1="40" x2="62" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="80" y1="40" x2="62" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="80" y1="40" x2="85" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+
+          {/* Bottom row connections (4 positions) */}
+          <line x1="15" y1="65" x2="38" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="38" y1="65" x2="62" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="62" y1="65" x2="85" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
         </svg>
       )
     } else {

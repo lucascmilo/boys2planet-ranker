@@ -54,6 +54,8 @@
 
   .card-content {
     padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
   }
 
   .ranking-title {

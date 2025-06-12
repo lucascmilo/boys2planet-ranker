@@ -19,6 +19,12 @@
   overflow: visible;
 }
 
+.ranking-avatar-container.small {
+  width: 4rem;
+  height: 4rem;
+  border-width: 3px;
+}
+
 .ranking-avatar-container.empty {
   border-color: #4b5563;
   overflow: hidden;
@@ -137,6 +143,13 @@
   backdrop-filter: blur(10px);
   width: 2rem;
   height: 2rem;
+}
+
+.ranking-avatar-container.small .position-badge {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.75rem;
+  border-width: 2px;
 }
 
 /* Overlay badge - positioned on the avatar for both desktop and mobile */
