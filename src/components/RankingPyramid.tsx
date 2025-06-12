@@ -28,21 +28,22 @@ export const RankingPyramid: React.FC<RankingPyramidProps> = ({
   showEliminated,
   showTop8,
 }) => {
-  const [draggedIndex, setDraggedIndex] = useState<number | null>(null)
+  const [selectedSlot, setSelectedSlot] = useState<number | null>(null)
 
-  const handleDragStart = (index: number) => {
-    setDraggedIndex(index)
-  }
-
-  const handleDragEnd = () => {
-    setDraggedIndex(null)
-  }
-
-  const handleDrop = (targetIndex: number) => {
-    if (draggedIndex !== null && draggedIndex !== targetIndex) {
-      onSwapPositions(draggedIndex, targetIndex)
+  const handleSlotClick = (index: number) => {
+    if (selectedSlot === null) {
+      // First click - select this slot if it has a trainee
+      if (ranking[index]) {
+        setSelectedSlot(index)
+      }
+    } else if (selectedSlot === index) {
+      // Clicking the same slot - deselect
+      setSelectedSlot(null)
+    } else {
+      // Second click - swap positions
+      onSwapPositions(selectedSlot, index)
+      setSelectedSlot(null)
     }
-    setDraggedIndex(null)
   }
 
   return (
@@ -81,10 +82,8 @@ export const RankingPyramid: React.FC<RankingPyramidProps> = ({
                       position={position + 1}
                       trainee={ranking[position]}
                       onRemove={onRemoveTrainee}
-                      onDragStart={() => handleDragStart(position)}
-                      onDragEnd={handleDragEnd}
-                      onDrop={() => handleDrop(position)}
-                      isDragging={draggedIndex === position}
+                      onClick={() => handleSlotClick(position)}
+                      isSelected={selectedSlot === position}
                       showEliminated={showEliminated}
                       showTop8={showTop8}
                     />
@@ -95,7 +94,7 @@ export const RankingPyramid: React.FC<RankingPyramidProps> = ({
           </div>
 
           <div className="ranking-instructions">
-            <p>Drag and drop to reorder • Click to remove</p>
+            <p>Click to select • Click another to swap • Click X to remove</p>
           </div>
         </div>
       </div>

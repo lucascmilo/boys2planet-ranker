@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { RankingSlot } from "./RankingSlot"
 import type { Trainee } from "../types/trainee"
 
@@ -13,21 +13,42 @@ interface RankingConstellationProps {
   showTop8: boolean
 }
 
-// Updated constellation formation positions - all same size
-const getFormationPosition = (index: number) => {
+// Desktop: Compact diamond constellation formation positions
+const getDesktopFormationPosition = (index: number) => {
   const positions = [
-    // Top row - 1st place (center)
+    // 1st place (top center)
     { x: 50, y: 20, isCenter: false, size: "medium" as const },
-    // Second row - 2nd and 3rd place
+    // 2nd and 3rd place (second row)
     { x: 35, y: 40, isCenter: false, size: "medium" as const },
     { x: 65, y: 40, isCenter: false, size: "medium" as const },
-    // Third row - 4th, 5th, 6th place
-    { x: 15, y: 60, isCenter: false, size: "medium" as const },
-    { x: 50, y: 60, isCenter: false, size: "medium" as const },
-    { x: 85, y: 60, isCenter: false, size: "medium" as const },
-    // Bottom row - 7th and 8th place
-    { x: 32.5, y: 80, isCenter: false, size: "medium" as const },
-    { x: 67.5, y: 80, isCenter: false, size: "medium" as const },
+    // 4th, 5th, 6th place (third row) - POSIÇÕES AJUSTADAS: 20%, 50%, 80%
+    { x: 20, y: 65, isCenter: false, size: "medium" as const },
+    { x: 50, y: 65, isCenter: false, size: "medium" as const },
+    { x: 80, y: 65, isCenter: false, size: "medium" as const },
+    // 7th and 8th place (bottom row)
+    { x: 35, y: 85, isCenter: false, size: "medium" as const },
+    { x: 65, y: 85, isCenter: false, size: "medium" as const },
+  ]
+
+  return positions[index] || { x: 50, y: 50, isCenter: false, size: "medium" as const }
+}
+
+// Mobile: Pyramid formation (1-3-4) com espaçamento vertical equalizado
+const getMobileFormationPosition = (index: number) => {
+  const positions = [
+    // 1st place (top center)
+    { x: 50, y: 15, isCenter: false, size: "medium" as const }, // Ajustado para Y=15
+    // 2nd, 3rd, 6th place (second row - 3 positions) - Espaçamento equalizado
+    { x: 18, y: 40, isCenter: false, size: "medium" as const }, // Ajustado para Y=40
+    { x: 50, y: 40, isCenter: false, size: "medium" as const }, // Ajustado para Y=40
+    // 4th, 5th, 7th, 8th place (bottom row - 4 positions) - Espaçamento equalizado
+    { x: 8, y: 65, isCenter: false, size: "medium" as const }, // Ajustado para X=8 (mais margem)
+    { x: 32, y: 65, isCenter: false, size: "medium" as const },
+    // 6th position goes to second row
+    { x: 82, y: 40, isCenter: false, size: "medium" as const }, // Ajustado para Y=40
+    // 7th and 8th continue bottom row - MAIS ESPAÇAMENTO HORIZONTAL
+    { x: 68, y: 65, isCenter: false, size: "medium" as const },
+    { x: 92, y: 65, isCenter: false, size: "medium" as const }, // Ajustado para X=92 (mais margem)
   ]
 
   return positions[index] || { x: 50, y: 50, isCenter: false, size: "medium" as const }
@@ -40,23 +61,41 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
   showEliminated,
   showTop8,
 }) => {
-  const [draggedIndex, setDraggedIndex] = useState<number | null>(null)
+  const [selectedSlot, setSelectedSlot] = useState<number | null>(null)
   const [isDownloading, setIsDownloading] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const constellationRef = useRef<HTMLDivElement>(null)
 
-  const handleDragStart = (index: number) => {
-    setDraggedIndex(index)
-  }
-
-  const handleDragEnd = () => {
-    setDraggedIndex(null)
-  }
-
-  const handleDrop = (targetIndex: number) => {
-    if (draggedIndex !== null && draggedIndex !== targetIndex) {
-      onSwapPositions(draggedIndex, targetIndex)
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
     }
-    setDraggedIndex(null)
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  const getFormationPosition = (index: number) => {
+    return isMobile ? getMobileFormationPosition(index) : getDesktopFormationPosition(index)
+  }
+
+  const handleSlotClick = (index: number) => {
+    if (selectedSlot === null) {
+      // First click - select this slot if it has a trainee
+      if (ranking[index]) {
+        setSelectedSlot(index)
+      }
+    } else if (selectedSlot === index) {
+      // Clicking the same slot - deselect
+      setSelectedSlot(null)
+    } else {
+      // Second click - swap positions
+      onSwapPositions(selectedSlot, index)
+      setSelectedSlot(null)
+    }
   }
 
   const downloadRanking = async () => {
@@ -125,16 +164,16 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
     ctx.font = "14px Inter, sans-serif"
     ctx.fillText(`Created on ${new Date().toLocaleDateString()}`, 600, 120)
 
-    // Updated position mapping for constellation layout - all same size
+    // Always use desktop positions for canvas (download)
     const canvasPositions = [
-      { x: 600, y: 200, size: 90, isCenter: false, rank: 1 }, // 1st - same size as others
-      { x: 420, y: 320, size: 90, isCenter: false, rank: 2 }, // 2nd
-      { x: 780, y: 320, size: 90, isCenter: false, rank: 3 }, // 3rd
-      { x: 200, y: 480, size: 90, isCenter: false, rank: 4 }, // 4th
-      { x: 600, y: 450, size: 90, isCenter: false, rank: 5 }, // 5th
-      { x: 1000, y: 480, size: 90, isCenter: false, rank: 6 }, // 6th
-      { x: 400, y: 620, size: 90, isCenter: false, rank: 7 }, // 7th
-      { x: 800, y: 620, size: 90, isCenter: false, rank: 8 }, // 8th
+      { x: 600, y: 160, size: 90, isCenter: false, rank: 1 }, // 1st - top center
+      { x: 420, y: 320, size: 90, isCenter: false, rank: 2 }, // 2nd - left
+      { x: 780, y: 320, size: 90, isCenter: false, rank: 3 }, // 3rd - right
+      { x: 240, y: 520, size: 90, isCenter: false, rank: 4 }, // 4th - 20% (240px de 1200px)
+      { x: 600, y: 520, size: 90, isCenter: false, rank: 5 }, // 5th - center
+      { x: 960, y: 520, size: 90, isCenter: false, rank: 6 }, // 6th - 80% (960px de 1200px)
+      { x: 420, y: 680, size: 90, isCenter: false, rank: 7 }, // 7th - bottom left
+      { x: 780, y: 680, size: 90, isCenter: false, rank: 8 }, // 8th - bottom right
     ]
 
     // Draw connecting constellation lines
@@ -403,6 +442,61 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
     ctx.fill()
   }
 
+  // Render different SVG lines based on screen size
+  const renderConstellationLines = () => {
+    if (isMobile) {
+      // Mobile pyramid lines (1-3-4) with updated positions
+      return (
+        <svg className="constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgba(168, 85, 247, 0.2)" />
+              <stop offset="50%" stopColor="rgba(236, 72, 153, 0.2)" />
+              <stop offset="100%" stopColor="rgba(168, 85, 247, 0.2)" />
+            </linearGradient>
+          </defs>
+
+          {/* Top to second row */}
+          <line x1="50" y1="15" x2="18" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+          <line x1="50" y1="15" x2="50" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+          <line x1="50" y1="15" x2="82" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+
+          {/* Second row to bottom row */}
+          <line x1="18" y1="40" x2="8" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="18" y1="40" x2="32" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="50" y1="40" x2="32" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="50" y1="40" x2="68" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="82" y1="40" x2="68" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="82" y1="40" x2="92" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+        </svg>
+      )
+    } else {
+      // Desktop diamond lines
+      return (
+        <svg className="constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgba(168, 85, 247, 0.2)" />
+              <stop offset="50%" stopColor="rgba(236, 72, 153, 0.2)" />
+              <stop offset="100%" stopColor="rgba(168, 85, 247, 0.2)" />
+            </linearGradient>
+          </defs>
+
+          <line x1="50" y1="20" x2="35" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+          <line x1="50" y1="20" x2="65" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
+          <line x1="35" y1="40" x2="20" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="35" y1="40" x2="50" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="65" y1="40" x2="80" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="65" y1="40" x2="50" y2="65" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="20" y1="65" x2="35" y2="85" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="50" y1="65" x2="35" y2="85" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="50" y1="65" x2="65" y2="85" stroke="url(#lineGradient)" strokeWidth="0.2" />
+          <line x1="80" y1="65" x2="65" y2="85" stroke="url(#lineGradient)" strokeWidth="0.2" />
+        </svg>
+      )
+    }
+  }
+
   return (
     <div className="ranking-constellation-container">
       <div className="card">
@@ -440,26 +534,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
         </div>
         <div className="card-content">
           <div ref={constellationRef} className="constellation-container">
-            {/* Updated connecting lines to match new positions */}
-            <svg className="constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="rgba(168, 85, 247, 0.2)" />
-                  <stop offset="50%" stopColor="rgba(236, 72, 153, 0.2)" />
-                  <stop offset="100%" stopColor="rgba(168, 85, 247, 0.2)" />
-                </linearGradient>
-              </defs>
-
-              {/* Updated formation connecting lines - adjusted for new positions */}
-              <line x1="50" y1="20" x2="35" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
-              <line x1="50" y1="20" x2="65" y2="40" stroke="url(#lineGradient)" strokeWidth="0.3" />
-              <line x1="35" y1="40" x2="15" y2="60" stroke="url(#lineGradient)" strokeWidth="0.2" />
-              <line x1="35" y1="40" x2="50" y2="60" stroke="url(#lineGradient)" strokeWidth="0.2" />
-              <line x1="65" y1="40" x2="85" y2="60" stroke="url(#lineGradient)" strokeWidth="0.2" />
-              <line x1="65" y1="40" x2="50" y2="60" stroke="url(#lineGradient)" strokeWidth="0.2" />
-              <line x1="50" y1="60" x2="32.5" y2="80" stroke="url(#lineGradient)" strokeWidth="0.2" />
-              <line x1="50" y1="60" x2="67.5" y2="80" stroke="url(#lineGradient)" strokeWidth="0.2" />
-            </svg>
+            {renderConstellationLines()}
 
             <div className="constellation-grid">
               {/* Always render all 8 slots to maintain consistent layout */}
@@ -472,12 +547,11 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
                     position={index + 1}
                     trainee={trainee}
                     onRemove={onRemoveTrainee}
-                    onDragStart={() => handleDragStart(index)}
-                    onDragEnd={handleDragEnd}
-                    onDrop={() => handleDrop(index)}
-                    isDragging={draggedIndex === index}
+                    onClick={() => handleSlotClick(index)}
+                    isSelected={selectedSlot === index}
                     showEliminated={showEliminated}
                     showTop8={showTop8}
+                    isMobile={isMobile}
                     style={{
                       position: "absolute",
                       left: `${position.x}%`,
@@ -493,7 +567,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
           </div>
 
           <div className="ranking-instructions">
-            <p>Drag and drop to reorder • Click X to remove</p>
+            <p>Click to select • Click another to swap • Click X to remove</p>
           </div>
         </div>
       </div>

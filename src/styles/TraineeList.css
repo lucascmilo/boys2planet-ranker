@@ -10,9 +10,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  max-height: 450px; /* Keep this to match constellation height */
+  max-height: 450px;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: var(--spacing-sm);
+  width: 100%;
 }
 
 /* Search Styles */
@@ -110,6 +112,18 @@
   background: rgba(42, 27, 74, 0.5);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-secondary);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .filters-panel {
+    padding: var(--spacing-sm);
+  }
+
+  .filter-label {
+    font-size: var(--font-size-sm);
+  }
 }
 
 /* Update filter-item to remove the old checkbox styling */

@@ -7,6 +7,8 @@
     radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.1) 0%, transparent 70%);
   position: relative;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .app::before {
@@ -27,6 +29,8 @@
   padding: var(--spacing-xl) var(--spacing-md);
   position: relative;
   z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .main-grid {
@@ -36,6 +40,8 @@
   max-width: 1400px;
   margin: 0 auto;
   align-items: start;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .left-section {

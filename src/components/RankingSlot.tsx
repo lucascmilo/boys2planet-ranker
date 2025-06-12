@@ -7,15 +7,14 @@ interface RankingSlotProps {
   position: number
   trainee: Trainee | null
   onRemove: (trainee: Trainee) => void
-  onDragStart: () => void
-  onDragEnd: () => void
-  onDrop: () => void
-  isDragging: boolean
+  onClick: () => void
+  isSelected: boolean
   showEliminated: boolean
   showTop8: boolean
   style?: React.CSSProperties
   isCenter?: boolean
   size?: "small" | "medium" | "large"
+  isMobile?: boolean
 }
 
 const getPositionClass = (position: number) => {
@@ -47,20 +46,15 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
   position,
   trainee,
   onRemove,
-  onDragStart,
-  onDragEnd,
-  onDrop,
-  isDragging,
+  onClick,
+  isSelected,
   showEliminated,
   showTop8,
   style,
   isCenter = false,
   size = "medium",
+  isMobile = false,
 }) => {
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault()
-  }
-
   const avatarSize = getAvatarSize()
   const badgeSize = getBadgeSize()
 
@@ -68,14 +62,10 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
     <div className="ranking-slot" style={style}>
       <div
         className={`ranking-avatar-container ${trainee ? gradeColors[trainee.grade] : "empty"} ${
-          isDragging ? "dragging" : ""
+          isSelected ? "selected" : ""
         }`}
         style={{ width: avatarSize, height: avatarSize }}
-        draggable={!!trainee}
-        onDragStart={trainee ? onDragStart : undefined}
-        onDragEnd={onDragEnd}
-        onDragOver={handleDragOver}
-        onDrop={onDrop}
+        onClick={onClick}
       >
         {/* Star glow - same for all positions */}
         <div className="star-glow"></div>
@@ -124,16 +114,23 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
             </svg>
           </div>
         )}
+
+        {/* Position Badge - Always as overlay on avatar (both desktop and mobile) */}
+        <div
+          className={`position-badge overlay-badge ${getPositionClass(position)}`}
+          style={{
+            width: isMobile ? "1.75rem" : badgeSize,
+            height: isMobile ? "1.75rem" : badgeSize,
+            fontSize: isMobile ? "0.875rem" : "1rem",
+          }}
+        >
+          {position}
+        </div>
       </div>
 
-      {/* Position Badge - same size for all */}
-      <div className={`position-badge ${getPositionClass(position)}`} style={{ width: badgeSize, height: badgeSize }}>
-        {position}
-      </div>
-
-      {/* Trainee Info - same size for all */}
+      {/* Trainee Info - Always visible */}
       {trainee && (
-        <div className="ranking-info">
+        <div className={`ranking-info ${isMobile ? "mobile-info" : ""}`}>
           <p className="ranking-name">{trainee.name}</p>
           <p className="ranking-company">{trainee.company}</p>
         </div>
