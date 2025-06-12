@@ -1359,6 +1359,18 @@ export const trainees: Trainee[] = [
  },
  {
     id: 114,
+    name: "Taiga",
+    nameKorean: "타이가",
+    company: "TOP MEDIA",
+    grade: "?",
+    birthYear: 2005,
+    image: "/images/taiga.jpg",
+    selected: false,
+    eliminated: false,
+    top12: false,
+ },
+ {
+    id: 115,
     name: "Taichi",
     nameKorean: "타이치",
     company: "Bill ENTERTAINMENT",
@@ -1370,7 +1382,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 115,
+    id: 116,
     name: "Tatsuki",
     nameKorean: "타츠키",
     company: "WAKEONE",
@@ -1382,7 +1394,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 116,
+    id: 117,
     name: "Teng Chia Chun",
     nameKorean: "덩지아쥔",
     company: "Individual",
@@ -1394,7 +1406,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 117,
+    id: 118,
     name: "Thanatorn",
     nameKorean: "타나톤",
     company: "WITHUS ENTERTAINMENT",
@@ -1406,7 +1418,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 118,
+    id: 119,
     name: "Tomoya",
     nameKorean: "토모야",
     company: "Individual",
@@ -1418,7 +1430,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 119,
+    id: 120,
     name: "Wang Can Ruo",
     nameKorean: "왕찬루어",
     company: "Individual",
@@ -1430,7 +1442,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 120,
+    id: 121,
     name: "Wang Dong Yi",
     nameKorean: "왕동이",
     company: "HEY+Entertainment",
@@ -1442,7 +1454,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 121,
+    id: 122,
     name: "Wang Sheng Lin",
     nameKorean: "왕성린",
     company: "YX. MEDIA",
@@ -1454,7 +1466,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 122,
+    id: 123,
     name: "Wang Zhong Zhi",
     nameKorean: "왕종쯔",
     company: "JOY MEDIA",
@@ -1466,7 +1478,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 123,
+    id: 124,
     name: "Weng Wei Dong",
     nameKorean: "웡웨이둥",
     company: "Individual",
@@ -1478,7 +1490,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 124,
+    id: 125,
     name: "Wong Sik Hei",
     nameKorean: "왕식헤이",
     company: "YSGROUP",
@@ -1490,7 +1502,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 125,
+    id: 126,
     name: "Xie Bing Hua",
     nameKorean: "시에빙화",
     company: "RND COMPANY",
@@ -1502,7 +1514,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 126,
+    id: 127,
     name: "Xie Jia Hui",
     nameKorean: "시에지아후이",
     company: "Individual",
@@ -1514,7 +1526,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 127,
+    id: 128,
     name: "Xie Yu Xin",
     nameKorean: "시에위신",
     company: "TOPCLASS ENTERTAINMENT",
@@ -1526,7 +1538,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 128,
+    id: 129,
     name: "Xuan Hao",
     nameKorean: "쉬안하오",
     company: "Individual",
@@ -1538,7 +1550,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 129,
+    id: 130,
     name: "Xue Su Ren",
     nameKorean: "쉬에수런",
     company: "Individual",
@@ -1550,7 +1562,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 130,
+    id: 131,
     name: "Yang Da Wit",
     nameKorean: "양다윗",
     company: "RBW",
@@ -1562,7 +1574,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 131,
+    id: 132,
     name: "Yang Heui Chan",
     nameKorean: "양희찬",
     company: "BRAVE ENTERTAINMENT",
@@ -1574,7 +1586,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 132,
+    id: 133,
     name: "Yang Jia Peng",
     nameKorean: "양지아펑",
     company: "Individual",
@@ -1586,7 +1598,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 133,
+    id: 134,
     name: "Yeom Ye Chan",
     nameKorean: "염예찬",
     company: "ChoCo ENTERTAINMENT",
@@ -1598,7 +1610,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 134,
+    id: 135,
     name: "Yeung Yuk Him",
     nameKorean: "영육힘",
     company: "Media Asia",
@@ -1610,7 +1622,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 135,
+    id: 136,
     name: "Yi Chen",
     nameKorean: "이첸",
     company: "WAKEONE",
@@ -1622,7 +1634,7 @@ export const trainees: Trainee[] = [
     top12: true,
  },
  {
-    id: 136,
+    id: 137,
     name: "Yoo Kang Min",
     nameKorean: "유강민",
     company: "JELLYFISH ENTERTAINMENT",
@@ -1634,7 +1646,7 @@ export const trainees: Trainee[] = [
     top12: true,
  },
  {
-    id: 137,
+    id: 138,
     name: "Yoo Ki Won",
     nameKorean: "유기원",
     company: "Individual",
@@ -1646,7 +1658,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 138,
+    id: 139,
     name: "Yoon Min",
     nameKorean: "윤민",
     company: "howtouse",
@@ -1658,7 +1670,19 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 139,
+    id: 140,
+    name: "Yuan Wei",
+    nameKorean: "위엔웨이",
+    company: "Jellyfish Entertainment",
+    grade: "?",
+    birthYear: 2002,
+    image: "/images/yuan-wei.jpg",
+    selected: false,
+    eliminated: false,
+    top12: false,
+ },
+ {
+    id: 141,
     name: "Yumeki",
     nameKorean: "유메키",
     company: "GRIGO ENTERTAINMENT",
@@ -1670,7 +1694,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 140,
+    id: 142,
     name: "Yusen",
     nameKorean: "유센",
     company: "P NATION",
@@ -1682,7 +1706,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 141,
+    id: 143,
     name: "Zeng Shang Xuan",
     nameKorean: "쩡상쉬안",
     company: "Individual",
@@ -1694,7 +1718,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 142,
+    id: 144,
     name: "Zhang Jia Hao",
     nameKorean: "장지아하오",
     company: "NOUER ENTERTAINMENT",
@@ -1706,7 +1730,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 143,
+    id: 145,
     name: "Zhang Shi Yi",
     nameKorean: "장스이",
     company: "esee",
@@ -1718,7 +1742,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 144,
+    id: 146,
     name: "Zhang Shun Yu",
     nameKorean: "장슌위",
     company: "Dragon Team Film and Television Culture",
@@ -1730,7 +1754,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 145,
+    id: 147,
     name: "Zhang Yi Hua",
     nameKorean: "장이화",
     company: "TOPCLASS ENTERTAINMENT",
@@ -1742,7 +1766,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 146,
+    id: 148,
     name: "Zhang Yu Xi",
     nameKorean: "장위시",
     company: "Individual",
@@ -1754,7 +1778,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 147,
+    id: 149,
     name: "Zhao Guang Xu",
     nameKorean: "자오광쉬",
     company: "IX ENTERTAINMENT",
@@ -1766,7 +1790,7 @@ export const trainees: Trainee[] = [
     top12: true,
  },
  {
-    id: 148,
+    id: 150,
     name: "Zheng Kun",
     nameKorean: "정쿤",
     company: "Individual",
@@ -1778,7 +1802,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 149,
+    id: 151,
     name: "Zheng Ren Yu",
     nameKorean: "정런위",
     company: "RYCE Entertainment",
@@ -1790,7 +1814,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 150,
+    id: 152,
     name: "Zhou An Xin",
     nameKorean: "조우안신",
     company: "NOUER ENTERTAINMENT",
@@ -1802,7 +1826,7 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 151,
+    id: 153,
     name: "Zhou Yan He",
     nameKorean: "조우옌허",
     company: "LIANCHENG ENTERTAINMENT",
@@ -1814,37 +1838,13 @@ export const trainees: Trainee[] = [
     top12: false,
  },
  {
-    id: 152,
+    id: 154,
     name: "Zhou Zheng",
     nameKorean: "조우정",
     company: "Star Voyage Century",
     grade: "?",
     birthYear: 1999,
     image: "/images/zhou-zheng.jpg",
-    selected: false,
-    eliminated: false,
-    top12: false,
- },
- {
-    id: 153,
-    name: "Zhu Jian",
-    nameKorean: "주지엔",
-    company: "Individual",
-    grade: "?",
-    birthYear: 2005,
-    image: "/images/zhu-jian.jpg",
-    selected: false,
-    eliminated: false,
-    top12: false,
- },
- {
-    id: 154,
-    name: "Zhu Liang",
-    nameKorean: "주량",
-    company: "Individual",
-    grade: "?",
-    birthYear: 2004,
-    image: "/images/zhu-liang.jpg",
     selected: false,
     eliminated: false,
     top12: false,
