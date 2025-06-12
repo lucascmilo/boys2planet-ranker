@@ -39,7 +39,7 @@ const getAvatarSize = () => {
 }
 
 const getBadgeSize = () => {
-  return "2rem" // Same size for all
+  return "1.75rem" // Updated smaller size for all
 }
 
 export const RankingSlot: React.FC<RankingSlotProps> = ({
@@ -115,13 +115,13 @@ export const RankingSlot: React.FC<RankingSlotProps> = ({
           </div>
         )}
 
-        {/* Position Badge - Always as overlay on avatar (both desktop and mobile) */}
+        {/* Position Badge - Always rendered last to ensure it's on top */}
         <div
           className={`position-badge overlay-badge ${getPositionClass(position)}`}
           style={{
             width: isMobile ? "1.75rem" : badgeSize,
             height: isMobile ? "1.75rem" : badgeSize,
-            fontSize: isMobile ? "0.875rem" : "1rem",
+            fontSize: isMobile ? "0.875rem" : "var(--font-size-sm)",
           }}
         >
           {position}

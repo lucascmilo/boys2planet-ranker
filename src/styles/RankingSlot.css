@@ -137,18 +137,19 @@
   justify-content: center;
   color: var(--text-primary);
   font-weight: bold;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm); /* Smaller font size */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  border: 3px solid;
+  border: 2px solid; /* Thinner border */
   backdrop-filter: blur(10px);
-  width: 2rem;
-  height: 2rem;
+  width: 1.75rem; /* Smaller width */
+  height: 1.75rem; /* Smaller height */
+  pointer-events: none; /* Ensure it doesn't interfere with clicks */
 }
 
 .ranking-avatar-container.small .position-badge {
-  width: 1.5rem;
-  height: 1.5rem;
-  font-size: 0.75rem;
+  width: 1.25rem; /* Even smaller for small avatars */
+  height: 1.25rem;
+  font-size: 0.7rem;
   border-width: 2px;
 }
 
@@ -157,7 +158,7 @@
   position: absolute;
   bottom: -0.25rem;
   right: -0.25rem;
-  z-index: 30;
+  z-index: 100; /* Much higher z-index to ensure it's always on top */
   border-width: 2px;
 }
 
