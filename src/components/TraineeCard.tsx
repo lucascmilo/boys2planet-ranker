@@ -15,6 +15,7 @@ const gradeColors = {
   C: "grade-c",
   D: "grade-d",
   F: "grade-f",
+  "?": "grade-?",
 }
 
 export const TraineeCard: React.FC<TraineeCardProps> = ({ trainee, showTop8, onClick }) => {

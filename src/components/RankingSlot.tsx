@@ -31,6 +31,7 @@ const gradeColors = {
   C: "grade-c",
   D: "grade-d",
   F: "grade-f",
+  "?": "grade-?",
 }
 
 // All slots now have the same size

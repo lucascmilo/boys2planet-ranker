@@ -204,6 +204,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
       C: "#3b82f6",
       D: "#06b6d4",
       F: "#6b7280",
+      "?": "#6b7280",
     }
 
     const rankColors = {
