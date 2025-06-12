@@ -96,6 +96,11 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
     }
   }
 
+  const removeFromRanking = (trainee: Trainee) => {
+    onRemoveTrainee(trainee)
+    setSelectedSlot(null) // Reset selection when removing a trainee
+  }
+
   const downloadRanking = async () => {
     setIsDownloading(true)
 
@@ -553,7 +558,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
                     key={index}
                     position={index + 1}
                     trainee={trainee}
-                    onRemove={onRemoveTrainee}
+                    onRemove={removeFromRanking}
                     onClick={() => handleSlotClick(index)}
                     isSelected={selectedSlot === index}
                     showEliminated={showEliminated}
