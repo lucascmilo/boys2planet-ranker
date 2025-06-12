@@ -39,7 +39,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 4,
-    name: "Baek Jae Hyeon",
+    name: "Baek JaeHyeon",
     nameKorean: "백제현",
     company: "H.O.M.E ENT.",
     grade: "?",
@@ -51,7 +51,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 5,
-    name: "Bang Jun Hyuk",
+    name: "Bang JunHyuk",
     nameKorean: "방준혁",
     company: "TOP MEDIA",
     grade: "?",
@@ -63,7 +63,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 6,
-    name: "Bang Su Hwan",
+    name: "Bang SuHwan",
     nameKorean: "방수환",
     company: "WITHUS ENT.",
     grade: "?",
@@ -75,7 +75,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 7,
-    name: "Bian Shi Yu",
+    name: "Bian ShiYu",
     nameKorean: "비엔스위",
     company: "TOPCLASS ENT.",
     grade: "?",
@@ -87,7 +87,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 8,
-    name: "Cai Jin Xin",
+    name: "Cai JinXin",
     nameKorean: "차이진신",
     company: "EE-Media",
     grade: "?",
@@ -99,7 +99,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 9,
-    name: "Chen Bo Wen",
+    name: "Chen BoWen",
     nameKorean: "천보원",
     company: "Individual",
     grade: "?",
@@ -111,7 +111,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 10,
-    name: "Chen Chao Yu",
+    name: "Chen ChaoYu",
     nameKorean: "천차오위",
     company: "Individual",
     grade: "?",
@@ -123,7 +123,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 11,
-    name: "Chen Jin Xin",
+    name: "Chen JinXin",
     nameKorean: "천진신",
     company: "Individual",
     grade: "?",
@@ -135,7 +135,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 12,
-    name: "Chen Kai Wen",
+    name: "Chen KaiWen",
     nameKorean: "천카이원",
     company: "CHROMOSOME",
     grade: "?",
@@ -147,7 +147,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 13,
-    name: "Chen Li Chi",
+    name: "Chen LiChi",
     nameKorean: "천리치",
     company: "TEN ENT.",
     grade: "?",
@@ -159,7 +159,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 14,
-    name: "Chen Zi Shuo",
+    name: "Chen ZiShuo",
     nameKorean: "천즈슈어",
     company: "I.E.ONE ENT.",
     grade: "?",
@@ -171,7 +171,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 15,
-    name: "Choi Jun Seok",
+    name: "Choi JunSeok",
     nameKorean: "최준석",
     company: "RBW",
     grade: "?",
@@ -183,7 +183,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 16,
-    name: "Cho Myeong Su",
+    name: "Cho MyeongSu",
     nameKorean: "조명수",
     company: "Individual",
     grade: "?",
@@ -219,7 +219,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 19,
-    name: "Chuei Li Yu",
+    name: "Chuei LiYu",
     nameKorean: "최립우",
     company: "FNC ENT.",
     grade: "?",
@@ -231,7 +231,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 20,
-    name: "Chung Sang Hyeon",
+    name: "Chung SangHyeon",
     nameKorean: "정상현",
     company: "WAKEONE",
     grade: "?",
@@ -243,7 +243,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 21,
-    name: "Dang Hong Hai",
+    name: "Dang HongHai",
     nameKorean: "당홍하이",
     company: "DONGYO ENT.",
     grade: "?",
@@ -255,7 +255,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 22,
-    name: "Dong Jing Kun",
+    name: "Dong JingKun",
     nameKorean: "동징쿤",
     company: "Dragon Team Film",
     grade: "?",
@@ -267,7 +267,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 23,
-    name: "Dong Zi Qi",
+    name: "Dong ZiQi",
     nameKorean: "동쯔치",
     company: "TOPCLASS ENT.",
     grade: "?",
@@ -279,7 +279,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 24,
-    name: "Fan Zhe Yi",
+    name: "Fan ZheYi",
     nameKorean: "판저이",
     company: "Individual",
     grade: "?",
@@ -303,7 +303,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 26,
-    name: "Ham Hyun Seo",
+    name: "Ham HyunSeo",
     nameKorean: "함현서",
     company: "nCH ENT.",
     grade: "?",
@@ -327,7 +327,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 28,
-    name: "Han Rui Ze",
+    name: "Han RuiZe",
     nameKorean: "한루이저",
     company: "Individual",
     grade: "?",
@@ -339,7 +339,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 29,
-    name: "He Jun Jin",
+    name: "He JunJin",
     nameKorean: "허준진",
     company: "I.E.ONE ENT.",
     grade: "?",
@@ -351,7 +351,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 30,
-    name: "He Xin Long",
+    name: "He XinLong",
     nameKorean: "허씬롱",
     company: "NCC ENT.",
     grade: "?",
@@ -363,7 +363,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 31,
-    name: "Heo Ji O",
+    name: "Heo JiO",
     nameKorean: "허지오",
     company: "STAR ON ENT.",
     grade: "?",
@@ -375,7 +375,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 32,
-    name: "He Zhong Xing",
+    name: "He ZhongXing",
     nameKorean: "허중싱",
     company: "Individual",
     grade: "?",
@@ -387,7 +387,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 33,
-    name: "Hong Zhi Han",
+    name: "Hong ZhiHan",
     nameKorean: "홍쯔한",
     company: "Individual",
     grade: "?",
@@ -399,7 +399,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 34,
-    name: "Hong Zih Hao",
+    name: "Hong ZihHao",
     nameKorean: "홍쯔하오",
     company: "TEN ENT.",
     grade: "?",
@@ -411,7 +411,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 35,
-    name: "Hsu Ching Yu",
+    name: "Hsu ChingYu",
     nameKorean: "쉬칭위",
     company: "WAKEONE",
     grade: "?",
@@ -423,7 +423,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 36,
-    name: "Hu Han Wen",
+    name: "Hu HanWen",
     nameKorean: "후한원",
     company: "Individual",
     grade: "?",
@@ -435,7 +435,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 37,
-    name: "Huang Hsin Yu",
+    name: "Huang HsinYu",
     nameKorean: "황신유",
     company: "TEN ENT.",
     grade: "?",
@@ -447,7 +447,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 38,
-    name: "Hwang Sun Woo",
+    name: "Hwang SunWoo",
     nameKorean: "황선우",
     company: "WAKEONE",
     grade: "?",
@@ -459,7 +459,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 39,
-    name: "Jang Han Eum",
+    name: "Jang HanEum",
     nameKorean: "장한음",
     company: "ES NATION",
     grade: "?",
@@ -471,7 +471,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 40,
-    name: "Jang Tae Yoon",
+    name: "Jang TaeYoon",
     nameKorean: "장태윤",
     company: "iNKODE ENT.",
     grade: "?",
@@ -483,7 +483,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 41,
-    name: "Jia Han Yu",
+    name: "Jia HanYu",
     nameKorean: "지아한위",
     company: "NCC ENT.",
     grade: "?",
@@ -507,7 +507,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 43,
-    name: "Jo Gye Hyeon",
+    name: "Jo GyeHyeon",
     nameKorean: "조계현",
     company: "JELLYFISH ENT.",
     grade: "?",
@@ -519,7 +519,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 44,
-    name: "Jun Lee Jeong",
+    name: "Jun LeeJeong",
     nameKorean: "전이정",
     company: "CJes Studios",
     grade: "?",
@@ -531,7 +531,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 45,
-    name: "Jung Hyun Jun",
+    name: "Jung HyunJun",
     nameKorean: "정현준",
     company: "NOUER ENT.",
     grade: "?",
@@ -555,7 +555,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 47,
-    name: "Kang Woo Jin",
+    name: "Kang WooJin",
     nameKorean: "강우진",
     company: "Individual",
     grade: "?",
@@ -591,7 +591,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 50,
-    name: "Kim Dong Hyun A",
+    name: "Kim DongHyun A",
     nameKorean: "김동현 A",
     company: "Individual",
     grade: "?",
@@ -603,7 +603,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 51,
-    name: "Kim Dong Hyun B",
+    name: "Kim DongHyun B",
     nameKorean: "김동현 B",
     company: "P NATION",
     grade: "?",
@@ -615,7 +615,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 52,
-    name: "Kim Dong Yun",
+    name: "Kim DongYun",
     nameKorean: "김동윤",
     company: "Woollim ENT.",
     grade: "?",
@@ -627,7 +627,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 53,
-    name: "Kim Geon Woo",
+    name: "Kim GeonWoo",
     nameKorean: "김건우",
     company: "Individual",
     grade: "?",
@@ -639,7 +639,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 54,
-    name: "Kim Hyeon Seo",
+    name: "Kim HyeonSeo",
     nameKorean: "김현서",
     company: "JELLYFISH ENT.",
     grade: "?",
@@ -651,7 +651,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 55,
-    name: "Kim Hyun Bin",
+    name: "Kim HyunBin",
     nameKorean: "김현빈",
     company: "Individual",
     grade: "?",
@@ -663,7 +663,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 56,
-    name: "Kim In Hu",
+    name: "Kim InHu",
     nameKorean: "김인후",
     company: "BIG PLANET MADE ENT.",
     grade: "?",
@@ -675,7 +675,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 57,
-    name: "Kim Jae Hyun",
+    name: "Kim JaeHyun",
     nameKorean: "김재현",
     company: "CUBE ENT.",
     grade: "?",
@@ -687,7 +687,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 58,
-    name: "Kim Jun Min",
+    name: "Kim JunMin",
     nameKorean: "김준민",
     company: "CJes Studios",
     grade: "?",
@@ -699,7 +699,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 59,
-    name: "Kim Jun Seo",
+    name: "Kim JunSeo",
     nameKorean: "김준서",
     company: "OUI ENT.",
     grade: "?",
@@ -711,7 +711,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 60,
-    name: "Kim Min Jun",
+    name: "Kim MinJun",
     nameKorean: "김민준",
     company: "Individual",
     grade: "?",
@@ -723,7 +723,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 61,
-    name: "Kim Si Hwan",
+    name: "Kim SiHwan",
     nameKorean: "김시환",
     company: "IST ENT.",
     grade: "?",
@@ -735,7 +735,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 62,
-    name: "Kim Tae Jo",
+    name: "Kim TaeJo",
     nameKorean: "김태조",
     company: "ChoCo ENT.",
     grade: "?",
@@ -747,7 +747,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 63,
-    name: "Kim Won Bin",
+    name: "Kim WonBin",
     nameKorean: "김원빈",
     company: "Individual",
     grade: "?",
@@ -759,7 +759,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 64,
-    name: "Kim Young Jun",
+    name: "Kim YoungJun",
     nameKorean: "김영준",
     company: "JELLYFISH ENT.",
     grade: "?",
@@ -771,7 +771,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 65,
-    name: "Ko Ming Chieh",
+    name: "Ko MingChieh",
     nameKorean: "커밍지에",
     company: "WAKEONE",
     grade: "?",
@@ -795,7 +795,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 67,
-    name: "Kwon Gyu Hyung",
+    name: "Kwon GyuHyung",
     nameKorean: "권규형",
     company: "Individual",
     grade: "?",
@@ -807,7 +807,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 68,
-    name: "Lee Dong Heon",
+    name: "Lee DongHeon",
     nameKorean: "이동헌",
     company: "JELLYFISH ENT.",
     grade: "?",
@@ -843,7 +843,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 71,
-    name: "Lee Sang Won",
+    name: "Lee SangWon",
     nameKorean: "이상원",
     company: "GRID ENT.",
     grade: "?",
@@ -855,7 +855,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 72,
-    name: "Lee Seung Baek",
+    name: "Lee SeungBaek",
     nameKorean: "이승백",
     company: "Woollim ENT.",
     grade: "?",
@@ -867,7 +867,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 73,
-    name: "Lee Won Woo",
+    name: "Lee WonWoo",
     nameKorean: "이원우",
     company: "Individual",
     grade: "?",
@@ -879,7 +879,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 74,
-    name: "Lee Yoon Chan",
+    name: "Lee YoonChan",
     nameKorean: "이윤찬",
     company: "GREAT M",
     grade: "?",
@@ -891,7 +891,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 75,
-    name: "Li Xiao Di",
+    name: "Li XiaoDi",
     nameKorean: "리샤오디",
     company: "Star Voyage CENT.ury",
     grade: "?",
@@ -903,7 +903,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 76,
-    name: "Li Zheng En",
+    name: "Li ZhengEn",
     nameKorean: "리정언",
     company: "Individual",
     grade: "?",
@@ -915,7 +915,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 77,
-    name: "Li Zi Hao",
+    name: "Li ZiHao",
     nameKorean: "리즈하오",
     company: "NCC ENT.",
     grade: "?",
@@ -939,7 +939,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 79,
-    name: "Lin Ching En",
+    name: "Lin ChingEn",
     nameKorean: "린칭언",
     company: "TEN ENT.",
     grade: "?",
@@ -951,7 +951,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 80,
-    name: "Lin Xin Rui",
+    name: "Lin XinRui",
     nameKorean: "린신루이",
     company: "Individual",
     grade: "?",
@@ -963,7 +963,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 81,
-    name: "Long Guo Hao",
+    name: "Long GuoHao",
     nameKorean: "룽궈하오",
     company: "Individual",
     grade: "?",
@@ -999,7 +999,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 84,
-    name: "Moon Suhn Bin",
+    name: "Moon SuhnBin",
     nameKorean: "문선빈",
     company: "Model directors",
     grade: "?",
@@ -1011,7 +1011,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 85,
-    name: "Muhn Won Jun",
+    name: "Muhn WonJun",
     nameKorean: "문원준",
     company: "CJes Studios",
     grade: "?",
@@ -1023,7 +1023,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 86,
-    name: "Na Yun Seo",
+    name: "Na YunSeo",
     nameKorean: "나윤서",
     company: "CUBE ENT.",
     grade: "?",
@@ -1035,7 +1035,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 87,
-    name: "Ngan Chau Yuet",
+    name: "Ngan ChauYuet",
     nameKorean: "안차우윗",
     company: "Individual",
     grade: "?",
@@ -1047,7 +1047,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 88,
-    name: "Nian Bo Heng",
+    name: "Nian BoHeng",
     nameKorean: "니안보행",
     company: "BILL ENT.",
     grade: "?",
@@ -1059,7 +1059,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 89,
-    name: "Noh Hui Jun",
+    name: "Noh HuiJun",
     nameKorean: "노휘준",
     company: "TOP MEDIA",
     grade: "?",
@@ -1071,7 +1071,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 90,
-    name: "Oh Jun Ho",
+    name: "Oh JunHo",
     nameKorean: "오준호",
     company: "WITHUS ENT.",
     grade: "?",
@@ -1083,7 +1083,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 91,
-    name: "Park Dong Gyu",
+    name: "Park DongGyu",
     nameKorean: "박동규",
     company: "IST ENT.",
     grade: "?",
@@ -1095,7 +1095,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 92,
-    name: "Park Ji Min",
+    name: "Park JiMin",
     nameKorean: "박지민",
     company: "ZERO-HI",
     grade: "?",
@@ -1107,7 +1107,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 93,
-    name: "Park Jun Il",
+    name: "Park JunIl",
     nameKorean: "박준일",
     company: "iNKODE ENT.",
     grade: "?",
@@ -1119,7 +1119,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 94,
-    name: "Park Jun Seong",
+    name: "Park JunSeong",
     nameKorean: "박준성",
     company: "JELLYFISH ENT.",
     grade: "?",
@@ -1131,7 +1131,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 95,
-    name: "Park Nu Ri",
+    name: "Park NuRi",
     nameKorean: "박누리",
     company: "GREAT M",
     grade: "?",
@@ -1143,7 +1143,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 96,
-    name: "Peng Jin Yui",
+    name: "Peng JinYui",
     nameKorean: "펑진위",
     company: "Individual",
     grade: "?",
@@ -1191,7 +1191,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 100,
-    name: "Qiao Guan Zhen",
+    name: "Qiao GuanZhen",
     nameKorean: "챠오관전",
     company: "Uni-icon ENT.",
     grade: "?",
@@ -1275,7 +1275,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 107,
-    name: "Shin Jae Ha",
+    name: "Shin JaeHa",
     nameKorean: "신재하",
     company: "Individual",
     grade: "?",
@@ -1311,7 +1311,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 110,
-    name: "Song Min Jae",
+    name: "Song MinJae",
     nameKorean: "송민재",
     company: "TOP MEDIA",
     grade: "?",
@@ -1323,7 +1323,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 111,
-    name: "Sun Han Lin",
+    name: "Sun HanLin",
     nameKorean: "쑨한린",
     company: "Individual",
     grade: "?",
@@ -1335,7 +1335,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 112,
-    name: "Sun Heng Yu",
+    name: "Sun HengYu",
     nameKorean: "쑨헝위",
     company: "Individual",
     grade: "?",
@@ -1347,7 +1347,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 113,
-    name: "Sun Jia Yang",
+    name: "Sun JiaYang",
     nameKorean: "쑨지아양",
     company: "Hangzhou Time",
     grade: "?",
@@ -1395,7 +1395,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 117,
-    name: "Teng Chia Chun",
+    name: "Teng ChiaChun",
     nameKorean: "덩지아쥔",
     company: "Individual",
     grade: "?",
@@ -1431,7 +1431,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 120,
-    name: "Wang Can Ruo",
+    name: "Wang CanRuo",
     nameKorean: "왕찬루어",
     company: "Individual",
     grade: "?",
@@ -1443,7 +1443,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 121,
-    name: "Wang Dong Yi",
+    name: "Wang DongYi",
     nameKorean: "왕동이",
     company: "HEY+ENT.",
     grade: "?",
@@ -1455,7 +1455,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 122,
-    name: "Wang Sheng Lin",
+    name: "Wang ShengLin",
     nameKorean: "왕성린",
     company: "YX. MEDIA",
     grade: "?",
@@ -1467,7 +1467,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 123,
-    name: "Wang Zhong Zhi",
+    name: "Wang ZhongZhi",
     nameKorean: "왕종쯔",
     company: "JOY MEDIA",
     grade: "?",
@@ -1479,7 +1479,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 124,
-    name: "Weng Wei Dong",
+    name: "Weng WeiDong",
     nameKorean: "웡웨이둥",
     company: "Individual",
     grade: "?",
@@ -1491,7 +1491,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 125,
-    name: "Wong Sik Hei",
+    name: "Wong SikHei",
     nameKorean: "왕식헤이",
     company: "YSGROUP",
     grade: "?",
@@ -1503,7 +1503,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 126,
-    name: "Xie Bing Hua",
+    name: "Xie BingHua",
     nameKorean: "시에빙화",
     company: "RND COMPANY",
     grade: "?",
@@ -1515,7 +1515,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 127,
-    name: "Xie Jia Hui",
+    name: "Xie JiaHui",
     nameKorean: "시에지아후이",
     company: "Individual",
     grade: "?",
@@ -1527,7 +1527,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 128,
-    name: "Xie Yu Xin",
+    name: "Xie YuXin",
     nameKorean: "시에위신",
     company: "TOPCLASS ENT.",
     grade: "?",
@@ -1551,7 +1551,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 130,
-    name: "Xue Su Ren",
+    name: "Xue SuRen",
     nameKorean: "쉬에수런",
     company: "Individual",
     grade: "?",
@@ -1563,7 +1563,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 131,
-    name: "Yang Da Wit",
+    name: "Yang DaWit",
     nameKorean: "양다윗",
     company: "RBW",
     grade: "?",
@@ -1575,7 +1575,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 132,
-    name: "Yang Heui Chan",
+    name: "Yang HeuiChan",
     nameKorean: "양희찬",
     company: "BRAVE ENT.",
     grade: "?",
@@ -1587,7 +1587,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 133,
-    name: "Yang Jia Peng",
+    name: "Yang JiaPeng",
     nameKorean: "양지아펑",
     company: "Individual",
     grade: "?",
@@ -1599,7 +1599,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 134,
-    name: "Yeom Ye Chan",
+    name: "Yeom YeChan",
     nameKorean: "염예찬",
     company: "ChoCo ENT.",
     grade: "?",
@@ -1611,7 +1611,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 135,
-    name: "Yeung Yuk Him",
+    name: "Yeung YukHim",
     nameKorean: "영육힘",
     company: "Media Asia",
     grade: "?",
@@ -1635,7 +1635,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 137,
-    name: "Yoo Kang Min",
+    name: "Yoo KangMin",
     nameKorean: "유강민",
     company: "JELLYFISH ENT.",
     grade: "?",
@@ -1647,7 +1647,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 138,
-    name: "Yoo Ki Won",
+    name: "Yoo KiWon",
     nameKorean: "유기원",
     company: "Individual",
     grade: "?",
@@ -1707,7 +1707,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 143,
-    name: "Zeng Shang Xuan",
+    name: "Zeng ShangXuan",
     nameKorean: "쩡상쉬안",
     company: "Individual",
     grade: "?",
@@ -1719,7 +1719,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 144,
-    name: "Zhang Jia Hao",
+    name: "Zhang JiaHao",
     nameKorean: "장지아하오",
     company: "NOUER ENT.",
     grade: "?",
@@ -1731,7 +1731,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 145,
-    name: "Zhang Shi Yi",
+    name: "Zhang ShiYi",
     nameKorean: "장스이",
     company: "esee",
     grade: "?",
@@ -1743,7 +1743,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 146,
-    name: "Zhang Shun Yu",
+    name: "Zhang ShunYu",
     nameKorean: "장슌위",
     company: "Dragon Team Film",
     grade: "?",
@@ -1755,7 +1755,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 147,
-    name: "Zhang Yi Hua",
+    name: "Zhang YiHua",
     nameKorean: "장이화",
     company: "TOPCLASS ENT.",
     grade: "?",
@@ -1767,7 +1767,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 148,
-    name: "Zhang Yu Xi",
+    name: "Zhang YuXi",
     nameKorean: "장위시",
     company: "Individual",
     grade: "?",
@@ -1779,7 +1779,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 149,
-    name: "Zhao Guang Xu",
+    name: "Zhao GuangXu",
     nameKorean: "자오광쉬",
     company: "IX ENT.",
     grade: "?",
@@ -1803,7 +1803,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 151,
-    name: "Zheng Ren Yu",
+    name: "Zheng RenYu",
     nameKorean: "정런위",
     company: "RYCE ENT.",
     grade: "?",
@@ -1815,7 +1815,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 152,
-    name: "Zhou An Xin",
+    name: "Zhou AnXin",
     nameKorean: "조우안신",
     company: "NOUER ENT.",
     grade: "?",
@@ -1827,7 +1827,7 @@ export const trainees: Trainee[] = [
   },
   {
     id: 153,
-    name: "Zhou Yan He",
+    name: "Zhou YanHe",
     nameKorean: "조우옌허",
     company: "LIANCHENG ENT.",
     grade: "?",
