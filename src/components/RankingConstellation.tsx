@@ -318,19 +318,19 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
     ctx.shadowBlur = 0
 
     if (trainee) {
-      // Draw trainee name with word wrapping
+      // Simplified text rendering for trainee name
       ctx.fillStyle = "#e879f9"
       ctx.font = `bold ${position <= 3 ? "18px" : "16px"} Inter, sans-serif`
+      ctx.textAlign = "center"
 
+      // Draw trainee name as a single line
       const nameY = pos.y + pos.size / 2 + 60
-      drawWrappedText(ctx, trainee.name, pos.x, nameY, pos.size + 60, 22)
+      ctx.fillText(trainee.name, pos.x, nameY)
 
-      // Draw company name
+      // Draw company name at fixed position below the name
       ctx.fillStyle = "#c084fc"
       ctx.font = `${position <= 3 ? "14px" : "12px"} Inter, sans-serif`
-
-      const companyY = nameY + (trainee.name.split(" ").length > 1 ? 25 : 15)
-      drawWrappedText(ctx, trainee.company, pos.x, companyY, pos.size + 80, 18)
+      ctx.fillText(trainee.company, pos.x, nameY + 20)
 
       // Draw grade badge
       const badgeSize = 28
@@ -346,34 +346,6 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
       ctx.font = "bold 14px Inter, sans-serif"
       ctx.fillText(trainee.grade, pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 20)
     }
-  }
-
-  const drawWrappedText = (
-    ctx: CanvasRenderingContext2D,
-    text: string,
-    x: number,
-    y: number,
-    maxWidth: number,
-    lineHeight: number,
-  ) => {
-    const words = text.split(" ")
-    let line = ""
-    let currentY = y
-
-    for (let n = 0; n < words.length; n++) {
-      const testLine = line + words[n] + " "
-      const metrics = ctx.measureText(testLine)
-      const testWidth = metrics.width
-
-      if (testWidth > maxWidth && n > 0) {
-        ctx.fillText(line.trim(), x, currentY)
-        line = words[n] + " "
-        currentY += lineHeight
-      } else {
-        line = testLine
-      }
-    }
-    ctx.fillText(line.trim(), x, currentY)
   }
 
   const drawDecorations = (ctx: CanvasRenderingContext2D) => {
