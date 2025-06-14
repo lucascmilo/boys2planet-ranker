@@ -2,7 +2,7 @@
 
 An interactive application to create and share your ranking of the top 8 trainees from Boys Planet. Built with React, TypeScript, and modular CSS.
 
-![Boys II Planet Ranker](https://boys2planet-ranker.netlify.app)
+[Boys II Planet Ranker](https://boys2planet-ranker.netlify.app)
 
 ## 🎮 How to Use
 
