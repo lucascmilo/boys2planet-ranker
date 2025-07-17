@@ -60,6 +60,8 @@ const getGradeDisplay = (grade: string) => {
       return "2"
     case "1 star":
       return "1"
+    case "0 star":
+      return "0"
     default:
       return grade
   }
@@ -257,6 +259,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
       "all star": "#8c46ba",
       "2 star": "#80c997",
       "1 star": "#facf73",
+      "0 star": "#4a4a4a",
       "?": "#ffffff",
     }
 

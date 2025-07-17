@@ -93,6 +93,9 @@
 .grade-badge.grade-1-star {
   background: #facf73; /* 1 star - yellow */
 }
+.grade-badge.grade-0-star {
+  background: #4a4a4a; /* 0 star - dark gray */
+}
 .grade-badge.grade-\? {
   background: #ffffff;
   color: #000000;

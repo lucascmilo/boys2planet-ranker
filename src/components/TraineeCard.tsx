@@ -13,6 +13,7 @@ const gradeColors = {
   "all star": "grade-all-star", // All star - purple
   "2 star": "grade-2-star", // 2 star - green
   "1 star": "grade-1-star", // 1 star - yellow
+  "0 star": "grade-0-star", // 0 star - dark gray
   "?": "grade-?",
 }
 
@@ -24,6 +25,8 @@ const getGradeDisplay = (grade: string) => {
       return "2"
     case "1 star":
       return "1"
+    case "0 star":
+      return "0"
     default:
       return grade
   }

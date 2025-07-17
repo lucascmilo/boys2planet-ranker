@@ -28,6 +28,7 @@ const gradeColors = {
   "all star": "grade-all-star",
   "2 star": "grade-2-star",
   "1 star": "grade-1-star",
+  "0 star": "grade-0-star",
   "?": "grade-?",
 }
 
