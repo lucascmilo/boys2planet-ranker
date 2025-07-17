@@ -25,11 +25,9 @@ const getPositionClass = (position: number) => {
 }
 
 const gradeColors = {
-  A: "grade-a",
-  B: "grade-b",
-  C: "grade-c",
-  D: "grade-d",
-  F: "grade-f",
+  "all star": "grade-all-star",
+  "2 star": "grade-2-star",
+  "1 star": "grade-1-star",
   "?": "grade-?",
 }
 

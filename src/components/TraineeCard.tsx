@@ -10,12 +10,23 @@ interface TraineeCardProps {
 }
 
 const gradeColors = {
-  A: "grade-a",
-  B: "grade-b",
-  C: "grade-c",
-  D: "grade-d",
-  F: "grade-f",
+  "all star": "grade-all-star", // All star - purple
+  "2 star": "grade-2-star", // 2 star - green
+  "1 star": "grade-1-star", // 1 star - yellow
   "?": "grade-?",
+}
+
+const getGradeDisplay = (grade: string) => {
+  switch (grade) {
+    case "all star":
+      return "★"
+    case "2 star":
+      return "2"
+    case "1 star":
+      return "1"
+    default:
+      return grade
+  }
 }
 
 export const TraineeCard: React.FC<TraineeCardProps> = ({ trainee, showTop8, onClick }) => {
@@ -35,7 +46,7 @@ export const TraineeCard: React.FC<TraineeCardProps> = ({ trainee, showTop8, onC
           </div>
 
           {/* Grade Badge */}
-          <div className={`grade-badge ${gradeColors[trainee.grade]}`}>{trainee.grade}</div>
+          <div className={`grade-badge ${gradeColors[trainee.grade]}`}>{getGradeDisplay(trainee.grade)}</div>
 
           {/* Top 8 Crown - Ícone atualizado */}
           {showTop8 && trainee.top12 && (

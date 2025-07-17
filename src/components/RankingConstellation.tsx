@@ -52,6 +52,19 @@ const getMobileFormationPosition = (index: number) => {
   return positions[index] || { x: 50, y: 50, isCenter: false, size: "small" as const }
 }
 
+const getGradeDisplay = (grade: string) => {
+  switch (grade) {
+    case "all star":
+      return "★"
+    case "2 star":
+      return "2"
+    case "1 star":
+      return "1"
+    default:
+      return grade
+  }
+}
+
 export const RankingConstellation: React.FC<RankingConstellationProps> = ({
   ranking,
   onRemoveTrainee,
@@ -241,11 +254,9 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
     position: number,
   ) => {
     const gradeColors = {
-      A: "#ec4899",
-      B: "#a855f7",
-      C: "#3b82f6",
-      D: "#06b6d4",
-      F: "#6b7280",
+      "all star": "#8c46ba",
+      "2 star": "#80c997",
+      "1 star": "#facf73",
       "?": "#ffffff",
     }
 
@@ -344,7 +355,7 @@ export const RankingConstellation: React.FC<RankingConstellationProps> = ({
 
       ctx.fillStyle = "#ffffff"
       ctx.font = "bold 14px Inter, sans-serif"
-      ctx.fillText(trainee.grade, pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 20)
+      ctx.fillText(getGradeDisplay(trainee.grade), pos.x + pos.size / 2 - 15, pos.y - pos.size / 2 + 20)
     }
   }
 

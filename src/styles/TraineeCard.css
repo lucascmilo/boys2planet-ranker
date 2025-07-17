@@ -84,20 +84,18 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.grade-badge.grade-a {
-  background: #ec4899;
+.grade-badge.grade-all-star {
+  background: #8c46ba; /* All star - purple */
 }
-.grade-badge.grade-b {
-  background: var(--primary-purple);
+.grade-badge.grade-2-star {
+  background: #80c997; /* 2 star - green */
 }
-.grade-badge.grade-c {
-  background: var(--primary-blue);
+.grade-badge.grade-1-star {
+  background: #facf73; /* 1 star - yellow */
 }
-.grade-badge.grade-d {
-  background: var(--primary-cyan);
-}
-.grade-badge.grade-f {
-  background: var(--primary-gray);
+.grade-badge.grade-\? {
+  background: #ffffff;
+  color: #000000;
 }
 
 /* Crown Badge */
@@ -160,11 +158,11 @@
 }
 
 .trainee-details {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  justify-content: space-between;
 }
 
 .company-badge {
