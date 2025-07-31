@@ -95,7 +95,7 @@ export const trainees: Trainee[] = [
     image: "/images/cai-jin-xin.jpg",
     selected: false,
     eliminated: true,
-    top12: true,
+    top12: false,
   },
   {
     id: 9,
@@ -143,7 +143,7 @@ export const trainees: Trainee[] = [
     image: "/images/chen-kai-wen.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 13,
@@ -299,7 +299,7 @@ export const trainees: Trainee[] = [
     image: "/images/fan-zhe-yi.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 26,
@@ -599,7 +599,7 @@ export const trainees: Trainee[] = [
     image: "/images/kang-woo-jin.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 51,
@@ -1403,7 +1403,7 @@ export const trainees: Trainee[] = [
     image: "/images/sun-heng-yu.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 118,
@@ -1415,7 +1415,7 @@ export const trainees: Trainee[] = [
     image: "/images/sun-jia-yang.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 119,
@@ -1691,7 +1691,7 @@ export const trainees: Trainee[] = [
     image: "/images/yi-chen.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 142,
@@ -1799,7 +1799,7 @@ export const trainees: Trainee[] = [
     image: "/images/zhang-jia-hao.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 151,
