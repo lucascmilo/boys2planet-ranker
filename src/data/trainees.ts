@@ -34,7 +34,7 @@ export const trainees: Trainee[] = [
     birthYear: 2008,
     image: "/images/arctic.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -106,7 +106,7 @@ export const trainees: Trainee[] = [
     birthYear: 2008,
     image: "/images/chen-bo-wen.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -239,7 +239,7 @@ export const trainees: Trainee[] = [
     image: "/images/chuei-li-yu.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 21,
@@ -262,7 +262,7 @@ export const trainees: Trainee[] = [
     birthYear: 2003,
     image: "/images/dang-hong-hai.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -298,7 +298,7 @@ export const trainees: Trainee[] = [
     birthYear: 2006,
     image: "/images/fan-zhe-yi.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -334,7 +334,7 @@ export const trainees: Trainee[] = [
     birthYear: 2004,
     image: "/images/han-harry-june.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -370,7 +370,7 @@ export const trainees: Trainee[] = [
     birthYear: 2005,
     image: "/images/he-jiahao.jpg",
     selected: false,
-    eliminated: true,
+    eliminated: false,
     top12: false,
   },
   {
@@ -395,7 +395,7 @@ export const trainees: Trainee[] = [
     image: "/images/he-xin-long.jpg",
     selected: false,
     eliminated: false,
-    top12: false,
+    top12: true,
   },
   {
     id: 34,
@@ -406,7 +406,7 @@ export const trainees: Trainee[] = [
     birthYear: 2003,
     image: "/images/he-zhong-xing.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -467,7 +467,7 @@ export const trainees: Trainee[] = [
     image: "/images/hu-han-wen.jpg",
     selected: false,
     eliminated: false,
-    top12: false,
+    top12: true,
   },
   {
     id: 40,
@@ -550,7 +550,7 @@ export const trainees: Trainee[] = [
     birthYear: 1999,
     image: "/images/jo-gye-hyeon.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -574,7 +574,7 @@ export const trainees: Trainee[] = [
     birthYear: 2009,
     image: "/images/jung-hyun-jun.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -658,7 +658,7 @@ export const trainees: Trainee[] = [
     birthYear: 2002,
     image: "/images/kim-dong-yun.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -671,7 +671,7 @@ export const trainees: Trainee[] = [
     image: "/images/kim-geon-woo.jpg",
     selected: false,
     eliminated: false,
-    top12: false,
+    top12: true,
   },
   {
     id: 57,
@@ -706,7 +706,7 @@ export const trainees: Trainee[] = [
     birthYear: 2005,
     image: "/images/kim-in-hu.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -718,7 +718,7 @@ export const trainees: Trainee[] = [
     birthYear: 2010,
     image: "/images/kim-jae-hyun.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -766,7 +766,7 @@ export const trainees: Trainee[] = [
     birthYear: 2005,
     image: "/images/kim-si-hwan.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -778,7 +778,7 @@ export const trainees: Trainee[] = [
     birthYear: 2010,
     image: "/images/kim-tae-jo.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1055,7 +1055,7 @@ export const trainees: Trainee[] = [
     image: "/images/masato.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 89,
@@ -1114,7 +1114,7 @@ export const trainees: Trainee[] = [
     birthYear: 2006,
     image: "/images/nian-bo-heng.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1151,7 +1151,7 @@ export const trainees: Trainee[] = [
     image: "/images/park-dong-gyu.jpg",
     selected: false,
     eliminated: false,
-    top12: false,
+    top12: true,
   },
   {
     id: 97,
@@ -1210,7 +1210,7 @@ export const trainees: Trainee[] = [
     birthYear: 2006,
     image: "/images/peng-jin-yui.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1318,7 +1318,7 @@ export const trainees: Trainee[] = [
     birthYear: 2005,
     image: "/images/sen.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1330,7 +1330,7 @@ export const trainees: Trainee[] = [
     birthYear: 2000,
     image: "/images/seo-won.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1414,7 +1414,7 @@ export const trainees: Trainee[] = [
     birthYear: 2006,
     image: "/images/sun-jia-yang.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1450,7 +1450,7 @@ export const trainees: Trainee[] = [
     birthYear: 2009,
     image: "/images/tatsuki.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1618,7 +1618,7 @@ export const trainees: Trainee[] = [
     birthYear: 2004,
     image: "/images/xue-su-ren.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1666,7 +1666,7 @@ export const trainees: Trainee[] = [
     birthYear: 2008,
     image: "/images/yeom-ye-chan.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1690,7 +1690,7 @@ export const trainees: Trainee[] = [
     birthYear: 1998,
     image: "/images/yi-chen.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1726,7 +1726,7 @@ export const trainees: Trainee[] = [
     birthYear: 2000,
     image: "/images/yoon-min.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1798,7 +1798,7 @@ export const trainees: Trainee[] = [
     birthYear: 2002,
     image: "/images/zhang-jia-hao.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1858,7 +1858,7 @@ export const trainees: Trainee[] = [
     birthYear: 2003,
     image: "/images/zhao-guang-xu.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
