@@ -370,7 +370,7 @@ export const trainees: Trainee[] = [
     birthYear: 2005,
     image: "/images/he-jiahao.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1798,7 +1798,7 @@ export const trainees: Trainee[] = [
     birthYear: 2002,
     image: "/images/zhang-jia-hao.jpg",
     selected: false,
-    eliminated: true,
+    eliminated: false,
     top12: false,
   },
   {
