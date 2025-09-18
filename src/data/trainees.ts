@@ -454,7 +454,7 @@ export const trainees: Trainee[] = [
     birthYear: 2009,
     image: "/images/hsu-ching-yu.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -466,8 +466,8 @@ export const trainees: Trainee[] = [
     birthYear: 2000,
     image: "/images/hu-han-wen.jpg",
     selected: false,
-    eliminated: false,
-    top12: true,
+    eliminated: true,
+    top12: false,
   },
   {
     id: 40,
@@ -502,7 +502,7 @@ export const trainees: Trainee[] = [
     birthYear: 2004,
     image: "/images/jang-han-eum.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -958,7 +958,7 @@ export const trainees: Trainee[] = [
     birthYear: 2004,
     image: "/images/li-zi-hao.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1054,7 +1054,7 @@ export const trainees: Trainee[] = [
     birthYear: 2003,
     image: "/images/masato.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1090,7 +1090,7 @@ export const trainees: Trainee[] = [
     birthYear: 2010,
     image: "/images/na-yun-seo.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1151,7 +1151,7 @@ export const trainees: Trainee[] = [
     image: "/images/park-dong-gyu.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 97,
@@ -1174,7 +1174,7 @@ export const trainees: Trainee[] = [
     birthYear: 2004,
     image: "/images/park-jun-il.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1402,7 +1402,7 @@ export const trainees: Trainee[] = [
     birthYear: 2001,
     image: "/images/sun-heng-yu.jpg",
     selected: false,
-    eliminated: false,
+    eliminated: true,
     top12: false,
   },
   {
@@ -1703,7 +1703,7 @@ export const trainees: Trainee[] = [
     image: "/images/yoo-kang-min.jpg",
     selected: false,
     eliminated: false,
-    top12: true,
+    top12: false,
   },
   {
     id: 143,
@@ -1799,7 +1799,7 @@ export const trainees: Trainee[] = [
     image: "/images/zhang-jia-hao.jpg",
     selected: false,
     eliminated: false,
-    top12: false,
+    top12: true,
   },
   {
     id: 151,
